@@ -12,12 +12,12 @@ namespace Project{
 		/// <value>
 		/// Reference to state controller for switching perspective
 		/// </value>
-		public StateController sController;
+		private StateController sController;
 
 		/// <value>
 		/// Reference to player gameobject
 		/// </value>
-		public GameObject player;
+		private GameObject player;
 
 		/// <value>
 		/// Amount of units by which the player moves per frame.
@@ -28,6 +28,8 @@ namespace Project{
 		Rigidbody playerRb;
 		// Use this for initialization
 		void Start () {
+            player = this.gameObject;
+            sController = this.gameObject.GetComponent<StateController>();
 		}
 		
 		// Update is called once per frame
