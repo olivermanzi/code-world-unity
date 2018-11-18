@@ -1,0 +1,39 @@
+{
+    "randomclass1":{
+        "attributes":[
+            {
+                "name":"randomattr1",
+                "type":"int"
+            },
+            {
+                "name":"randomattr2",
+                "type":"int"
+            },
+            {
+                "name":"randomattr3",
+                "type":"int"
+            },
+            {
+                "name":"randomattr4",
+                "type":"string"
+            }
+        ],
+        "methods":[
+            {
+                "name":"randommethod1",
+                "returnType":"int"
+            },
+            {
+                "name":"randommethod2",
+                "returnType":"int"
+            },
+            {
+                "name":"randommethod3",
+                "returnType":"int"
+            }
+        ],
+        "relationships":{
+
+        }
+    }
+}

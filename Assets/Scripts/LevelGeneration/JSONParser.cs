@@ -2,15 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JSONParser : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class JSONParser
+{
+    public ClassObject[] Parse(string json) => JsonHelper.FromJson<ClassObject>(json);
 }
