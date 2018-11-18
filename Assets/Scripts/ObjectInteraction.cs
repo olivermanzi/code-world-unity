@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Script used to allow player interaction with objects in first person
@@ -25,6 +26,14 @@ namespace Project{
 		/// </value>
 		RaycastHit hit;
 
+		/// <value>
+		/// Reference for text field in HUD
+		/// </value>
+		public Text fpText;
+
+		/// <value>
+		/// Remembers whether an Interactable is moused over or not
+		/// </value>
 		private bool _mousedOver;
 
 		// Use this for initialization
@@ -43,10 +52,12 @@ namespace Project{
 					if(hit.transform.gameObject.tag == "Interactable")
 					{
 						Debug.Log("Got hit!");
+						fpText.text = "Press E to view info";
 						_mousedOver = true;
 					}
 					else
 					{
+						fpText.text = "";
 						_mousedOver = false;
 					}
 				}
