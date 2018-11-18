@@ -1,19 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class JSONParser
 {
-    public ClassObject[] Parse(string json) => FromJson(json);
-
-    private ClassObject[] FromJson(string json)
+    public T[] Parse<T>(string json)
     {
-        Wrapper<ClassObject> wrapper = JsonUtility.FromJson<Wrapper<ClassObject>>(json);
+        return FromJson<T>(json);
+    }
+
+    public string ToJson<T>(T[] array)
+    {
+        Wrapper<T> wrapper = new Wrapper<T>{data = array};
+        return JsonUtility.ToJson(wrapper, true);
+    }
+
+    private T[] FromJson<T>(string json)
+    {
+        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
         return wrapper.data;
     }
 
-    private class Wrapper<ClassObject>
+    [Serializable]
+    private class Wrapper<T>
     {
-        public ClassObject[] data;
+        public T[] data;
     }
 }
