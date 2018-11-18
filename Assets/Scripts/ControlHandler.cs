@@ -76,6 +76,10 @@ namespace Project{
 			{
 				player.transform.position += Vector3.right * MovementFactor ;
 			}
+			else if(Input.GetKeyDown(KeyCode.E))
+			{
+				gameObject.GetComponent<ObjectInteraction>().StartInteraction();
+			}
 		}
 	}
 }
