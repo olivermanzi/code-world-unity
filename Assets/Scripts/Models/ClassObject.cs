@@ -1,12 +1,26 @@
 ﻿using System;
-using System.Collections;
 
 [Serializable]
 public class ClassObject
 {
-    public Hashtable Attributes{ get; set; }
-    public Hashtable Methods { get; set; }
-    public string[] Interfaces { get; set; }
-    public string[] Subclasses { get; set; }
-    public string Superclass { get; set; }
+    public string name;
+    public Attribute[] attributes;
+    public Method[] methods;
+    public string[] interfaces;
+    public string[] subclasses;
+    public string superclass;
+
+    [Serializable]
+    public class Attribute
+    {
+        public string name;
+        public string type;
+    }
+
+    [Serializable]
+    public class Method
+    {
+        public string name;
+        public string returnType;
+    }
 }
