@@ -1,6 +1,8 @@
 {
-    "data":[{
-        "randomclass1":{
+    "data":
+    [
+        {
+            "name":"randomclass1",
             "attributes":[
                 {
                     "name":"randomattr1",
@@ -40,5 +42,5 @@
                 "randomclass5","randomclass6","randomclass7"
             ]
         }
-    }]
+    ]
 }
