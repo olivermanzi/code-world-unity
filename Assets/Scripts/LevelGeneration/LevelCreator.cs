@@ -19,7 +19,7 @@ public class LevelCreator : MonoBehaviour {
 
     public void SetupWorld()
     {
-        string json = _streamReader.ReadToEnd();
+/*        string json = _streamReader.ReadToEnd();
         ClassObject[] classes = _jsonParser.Parse(json);
 
         foreach (ClassObject c in classes)
@@ -28,6 +28,6 @@ public class LevelCreator : MonoBehaviour {
             //Instantiate(gameObject); //TODO: Remove comments once GameObjectCreator works
         }
 
-        Debug.Log(_jsonParser.ToJson(classes)); // DEV only
+        Debug.Log(_jsonParser.ToJson(classes)); // DEV only*/
     }
 }
