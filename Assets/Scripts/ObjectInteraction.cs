@@ -47,19 +47,20 @@ namespace Project{
 			{
 				ray = FPCamera.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
 
-				if(Physics.Raycast(ray, out hit))
-				{
-					if(hit.transform.gameObject.tag == "Interactable")
-					{
-						Debug.Log("Got hit!");
+				if (Physics.Raycast (ray, out hit)) {
+					if (hit.transform.gameObject.tag == "Interactable") {
+						Debug.Log ("Got hit!");
 						fpText.text = "Press E to view info";
 						_mousedOver = true;
-					}
-					else
-					{
+					} else {
 						fpText.text = "";
 						_mousedOver = false;
 					}
+				} 
+				else 
+				{
+					fpText.text = "";
+					_mousedOver = false;
 				}
 			}
 		}
