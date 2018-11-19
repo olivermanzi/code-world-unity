@@ -24,6 +24,11 @@ namespace Project{
 		/// </value>
 		public GameObject BECamera;
 
+		/// <value>
+		/// Reference to First person UI canvas
+		/// </value>
+		public GameObject firstPersonUI;
+
 		public enum State
 		{
 			BirdsEye,
@@ -50,9 +55,11 @@ namespace Project{
 			{
 				//TODO: Future behavior that will depend on changed states
 				case State.BirdsEye:
+					firstPersonUI.SetActive(false);
 				break;
 
 				case State.FirstPerson:
+					firstPersonUI.SetActive(true);
 				break;
 
 				default:
