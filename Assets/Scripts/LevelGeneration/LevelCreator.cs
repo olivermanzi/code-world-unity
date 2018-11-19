@@ -20,7 +20,7 @@ public class LevelCreator : MonoBehaviour {
     public void SetupWorld()
     {
         string json = _streamReader.ReadToEnd();
-        ClassObject[] classes = _jsonParser.Parse(json);
+        ClassObject[] classes = _jsonParser.Parse<ClassObject>(json);
 
         foreach (ClassObject c in classes)
         {
