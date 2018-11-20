@@ -36,10 +36,13 @@
                 }
             ],
             "subclasses":[
-                "randomclass2","randomclass3","randomclass4"
+                "randomclass2"
             ],
             "components":[
-                "randomclass5","randomclass6","randomclass7"
+                "randomclass5"
+            ],
+            "associations":[
+                "randomclass8","randomclass9","randomclass10"
             ]
         }
     ]

@@ -9,6 +9,7 @@ public class ClassObject
     public string[] interfaces;
     public string[] subclasses;
     public string superclass;
+    public string[] associations;
 
     [Serializable]
     public class Attribute
