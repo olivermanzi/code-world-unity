@@ -35,7 +35,7 @@ namespace Project{
 		// Update is called once per frame
 		void Update () {
 			CameraListener();
-			MovementListener();
+			InteractionListener();
 		}
 
 		/// <summary>
@@ -59,24 +59,8 @@ namespace Project{
 		/// <summary>
 		/// Listens for movement input and moves the player accordingly
 		/// </summary>
-		public void MovementListener(){
-			if (Input.GetKey(KeyCode.W))
-			{
-				player.transform.position += Vector3.forward * MovementFactor ;
-			}
-			else if(Input.GetKey(KeyCode.A))
-			{
-				player.transform.position -= Vector3.right * MovementFactor ;
-			}
-			else if(Input.GetKey(KeyCode.S))
-			{
-				player.transform.position -= Vector3.forward * MovementFactor ;
-			}
-			else if(Input.GetKey(KeyCode.D))
-			{
-				player.transform.position += Vector3.right * MovementFactor ;
-			}
-			else if(Input.GetKeyDown(KeyCode.E))
+		public void InteractionListener(){
+			if(Input.GetKeyDown(KeyCode.E))
 			{
 				gameObject.GetComponent<ObjectInteraction>().StartInteraction();
 			}
