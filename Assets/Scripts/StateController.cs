@@ -9,9 +9,6 @@ namespace Project{
 	/// </summary>
 	public class StateController : MonoBehaviour {
 
-		/// <value>
-		/// Enumerator denoting different states
-		/// </value>
 
 		/// <value>
 		/// Reference to First Person Camera gameobject
@@ -19,15 +16,16 @@ namespace Project{
 		/// </value>
 		public GameObject FPCamera;
 
-		/// <value>
-		/// Reference to Birds Eye Camera gameobject
-		/// </value>
+		//Reference to birdsEye camera
 		public GameObject BECamera;
 
-		/// <value>
-		/// Reference to First person UI canvas
-		/// </value>
+		/// References to UI canvases
 		public GameObject firstPersonUI;
+
+
+		/// <value>
+		/// Enumerator denoting different states
+		/// </value>
 
 		public enum State
 		{
