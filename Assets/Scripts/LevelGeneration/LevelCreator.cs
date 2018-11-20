@@ -21,13 +21,12 @@ public class LevelCreator : MonoBehaviour {
     {
         string json = _streamReader.ReadToEnd();
         ClassObject[] classes = _jsonParser.Parse<ClassObject>(json);
-
-        foreach (ClassObject c in classes)
+  
+        foreach (var c in classes)
         {
-            GameObject gameObject = _gameObjectCreator.Compose(c);
-            //Instantiate(gameObject); //TODO: Remove comments once GameObjectCreator works
+           _gameObjectCreator.Compose(c);
         }
 
-        Debug.Log(_jsonParser.ToJson(classes)); // DEV only
+        Debug.Log(_jsonParser.ToJson<ClassObject>(classes)); // DEV only
     }
 }
