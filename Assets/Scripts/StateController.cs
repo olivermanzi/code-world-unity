@@ -14,7 +14,7 @@ namespace Project{
 		/// Reference to First Person Camera gameobject
 		/// Found from the player object
 		/// </value>
-		public GameObject FPCamera;
+		private GameObject FPCamera;
 
 		//Reference to birdsEye camera
 		public GameObject BECamera;
@@ -35,7 +35,7 @@ namespace Project{
 
 		// Use this for initialization
 		void Start () {
-			
+            FPCamera = gameObject.transform.GetChild(0).gameObject;
 		}
 		
 		// Update is called once per frame

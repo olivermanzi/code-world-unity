@@ -49,7 +49,6 @@ namespace Project{
 
 				if (Physics.Raycast (ray, out hit)) {
 					if (hit.transform.gameObject.tag == "Interactable") {
-						Debug.Log ("Got hit!");
 						fpText.text = "Press E to view info";
 						_mousedOver = true;
 					} else {

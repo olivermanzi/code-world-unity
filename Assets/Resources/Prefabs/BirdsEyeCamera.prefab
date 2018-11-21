@@ -20,14 +20,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4679516360636280}
   - component: {fileID: 20173768057014708}
-  - component: {fileID: 81276260010646688}
   m_Layer: 0
   m_Name: BirdsEyeCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4679516360636280
 Transform:
   m_ObjectHideFlags: 1
@@ -77,10 +76,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &81276260010646688
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1185619771839732}
-  m_Enabled: 1
