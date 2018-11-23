@@ -34,8 +34,9 @@ public class ConnectionGenerator : ScriptableObject
                 var targetEntry = room.GetNextEntryPoint();
 
                 Vector3 v1 = platform.transform.position - platform.transform.Find("Startpoint").position;
-                platform.transform.rotation = Quaternion.FromToRotation(v1, targetEntry) * platform.transform.rotation;
-                platform.transform.position = targetEntry + targetEntry.normalized * v1.magnitude;
+                Debug.Log(targetEntry.transform.parent.transform.rotation);
+                platform.transform.Rotate(targetEntry.transform.parent.position);
+                platform.transform.position = targetEntry.transform.position + v1;
             }
             else
             {

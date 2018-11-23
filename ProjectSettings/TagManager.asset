@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Interactable
   - Building
+  - FrontDoorEntry
+  - BackDoorEntry
+  - LeftDoorEntry
+  - RightDoorEntry
   layers:
   - Default
   - TransparentFX
