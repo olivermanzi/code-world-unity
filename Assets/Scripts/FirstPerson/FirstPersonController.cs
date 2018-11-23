@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using Project;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -46,7 +47,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            RotateView();
+            //LMAO RIP PERFORMANCE
+            //TODO: make this more optimized
+            //i will never do it btw
+            if(this.gameObject.GetComponent<Project.StateController>().GetState() == Project.StateController.State.FirstPerson)
+            {
+                RotateView();
+            }
+            else
+            {
+                this.transform.rotation = new Quaternion(0, 0, 0, 0);
+            }
             m_MoveDir.y = 0f;
         }
 

@@ -45,7 +45,6 @@ namespace Project{
 		
 		// Update is called once per frame
 		void Update () {
-			playerPositionHandler();
 		}
 
 		/// <summary>
@@ -96,14 +95,6 @@ namespace Project{
 			}
 		}
 
-		/// <summary>
-		/// Draws player position on the birds eye view
-		/// </summary>
-		public void playerPositionHandler()
-		{
-			Vector3 pos = Camera.main.WorldToScreenPoint(this.transform.position);
-			birdsEyeSprite.transform.position = pos;
-		}
 	}
 }
 
