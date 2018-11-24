@@ -19,7 +19,7 @@ public class Room
         _doorsNum = rels > 4 ? 4 : rels;
     }
 
-    public Vector3 GetNextEntryPoint()
+    public GameObject GetNextEntryPoint()
     {
         string targetTag = "DoorEntry";
 
@@ -39,6 +39,8 @@ public class Room
                 break;
         }
 
+        _entryCounter++;
+
         if (/*morethanthat*/false)
         {
             //do smth
@@ -54,11 +56,11 @@ public class Room
                 {
                     if (child.GetChild(j).tag.Equals(targetTag))
                     {
-                        return child.GetChild(j).position;
+                        return child.GetChild(j).gameObject;
                     }
                 }
             }
         }
-        return new Vector3();
+        return new GameObject();
     }
 }

@@ -31,11 +31,15 @@ public class ConnectionGenerator : ScriptableObject
             {
                 //If associated room doesn't exist, create open bridge
                 var platform = Instantiate(_platform);
-                var targetEntry = room.GetNextEntryPoint();
 
+                //Set the rotation and position to the correct values
+                var targetEntry = room.GetNextEntryPoint();
+                platform.transform.rotation = targetEntry.transform.parent.rotation;
+                platform.transform.position = targetEntry.transform.position;
+
+                //Push the platform "outwards" so that its startpoint and the target position align
                 Vector3 v1 = platform.transform.position - platform.transform.Find("Startpoint").position;
-                platform.transform.rotation = Quaternion.FromToRotation(v1, targetEntry) * platform.transform.rotation;
-                platform.transform.position = targetEntry + targetEntry.normalized * v1.magnitude;
+                platform.transform.position += v1;
             }
             else
             {
@@ -44,6 +48,4 @@ public class ConnectionGenerator : ScriptableObject
             }
         }
     }
-
-   
 }

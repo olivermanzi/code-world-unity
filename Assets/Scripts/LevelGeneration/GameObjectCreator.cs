@@ -16,7 +16,8 @@ public class GameObjectCreator : ScriptableObject
         Room room = _roomCreator.CreateRoom(classObject);
         _connectionGenerator.CreateConnections(room);
 
-        Instantiate(room.RoomGO);
+        GameObject newRoom = Instantiate(room.RoomGO);
+        newRoom.name = room.Info.name;
     }
 
     //Count number of relationships a class has
