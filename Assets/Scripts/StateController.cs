@@ -36,6 +36,7 @@ namespace Project{
 		// Use this for initialization
 		void Start () {
             FPCamera = gameObject.transform.GetChild(0).gameObject;
+            FPCamera.SetActive(true);
 		}
 		
 		// Update is called once per frame

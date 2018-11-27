@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using UnityEngine;
 
 public class LevelCreator : MonoBehaviour {
@@ -10,7 +11,7 @@ public class LevelCreator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _jsonParser = new JSONParser();
-        _gameObjectCreator = new GameObjectCreator();
+        _gameObjectCreator = ScriptableObject.CreateInstance("GameObjectCreator") as GameObjectCreator;
 
         string path = "Assets/Resources/mock.json"; //TODO: Change this so filename is more dynamic
         _streamReader = new StreamReader(path);
@@ -21,7 +22,7 @@ public class LevelCreator : MonoBehaviour {
     {
         string json = _streamReader.ReadToEnd();
         ClassObject[] classes = _jsonParser.Parse<ClassObject>(json);
-  
+
         foreach (var c in classes)
         {
            _gameObjectCreator.Compose(c);

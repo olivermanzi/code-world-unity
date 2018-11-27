@@ -10,6 +10,7 @@ public class ClassObject
     public string[] subclasses;
     public string superclass;
     public string[] associations;
+    public string[] components;
 
     [Serializable]
     public class Attribute

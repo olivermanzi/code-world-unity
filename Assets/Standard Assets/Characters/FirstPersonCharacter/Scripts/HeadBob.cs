@@ -20,8 +20,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void Start()
         {
-            motionBob.Setup(Camera, StrideInterval);
-            m_OriginalCameraPosition = Camera.transform.localPosition;
+			m_OriginalCameraPosition = Camera.transform.localPosition;
+			motionBob.Setup(m_OriginalCameraPosition, StrideInterval);
        //     m_CameraRefocus = new CameraRefocus(Camera, transform.root.transform, Camera.transform.localPosition);
         }
 

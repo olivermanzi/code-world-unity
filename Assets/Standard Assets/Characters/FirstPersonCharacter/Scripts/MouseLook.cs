@@ -23,7 +23,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void Init(Transform character, Transform camera)
         {
-            m_CharacterTargetRot = character.localRotation;
+			m_CharacterTargetRot = Quaternion.FromToRotation(character.transform.up, -Physics.gravity) * character.rotation;
             m_CameraTargetRot = camera.localRotation;
         }
 
@@ -41,7 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if(smooth)
             {
-                character.localRotation = Quaternion.Slerp (character.localRotation, m_CharacterTargetRot,
+				character.localRotation = Quaternion.Slerp (character.rotation, m_CharacterTargetRot,
                     smoothTime * Time.deltaTime);
                 camera.localRotation = Quaternion.Slerp (camera.localRotation, m_CameraTargetRot,
                     smoothTime * Time.deltaTime);
