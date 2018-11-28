@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
-    public Transform player;
-    public Transform reciever;
+    private Transform player;
+    public Transform receiver;
 
     private bool isOverlapping = false;
 
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player").transform;
+    }
+
     // Update is called once per frame
     void Update () {
-        if (isOverlapping)
+        if (isOverlapping == true && receiver != null)
         {
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
 
-            if(dotProduct < 0f)
-            {
-                float rotationDiff = -Quaternion.Angle(transform.rotation, reciever.rotation);
-                rotationDiff += 180;
-                player.Rotate(Vector3.up, rotationDiff);
-
-                Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f)*portalToPlayer;
-                player.position = reciever.position + positionOffset;
-
+            var destination = receiver.transform.parent.parent.Find("PortalCamera").transform.position;
+            var camrot =  receiver.transform.parent.parent.parent.Find("PortalCamera").transform.rotation;
+            player.transform.position = new Vector3(destination.x, player.transform.position.y, destination.z);
                 isOverlapping = false;
-            }
         }
-	}
+    }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider collider)
     {
+        if(collider.tag == "Player")
+        {
             isOverlapping = true;
+        }
     }
 }
