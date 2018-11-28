@@ -20,11 +20,10 @@ public class Portal : MonoBehaviour {
         {
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
-
-            var destination = receiver.transform.parent.parent.Find("PortalCamera").transform.position;
+            isOverlapping = false;
+            var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform.position;
             var camrot =  receiver.transform.parent.parent.parent.Find("PortalCamera").transform.rotation;
             player.transform.position = new Vector3(destination.x, player.transform.position.y, destination.z);
-                isOverlapping = false;
         }
     }
 

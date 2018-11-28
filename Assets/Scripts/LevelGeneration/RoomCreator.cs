@@ -105,7 +105,7 @@ public class RoomCreator : ScriptableObject
         {
             if (corridor.transform.GetChild(i).CompareTag("PortalCam"))
             {
-                corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal =roomBH.RightTeleporter.transform.parent.Find("Portal");
+                corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal =roomBH.RightTeleporter.transform.parent.Find("Portal").transform;
             }
         }
     }
