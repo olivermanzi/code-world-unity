@@ -146,6 +146,9 @@ public class RoomBehaviour : MonoBehaviour
                 FrontTeleporter = transform.GetChild(i).transform.Find("Doorway/PortalTeleporter");
             }
         }
+    }
+
+    void Start(){
         SetupTeleports();
     }
 
