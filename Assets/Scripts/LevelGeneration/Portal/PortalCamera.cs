@@ -45,7 +45,7 @@ public class PortalCamera : MonoBehaviour
         cam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         mat = new Material(shader);
         mat.mainTexture = cam.targetTexture;
-        playerCamera = GameObject.FindWithTag("Player").transform;
+        playerCamera = GameObject.FindWithTag("Player").transform.GetChild(0);
     }
 
     private void Start()
@@ -67,12 +67,17 @@ public class PortalCamera : MonoBehaviour
     {
         if(OtherPortal != null){
             Vector3 offset = playerCamera.position - OtherPortal.position;
-            transform.position =  portal.position - offset;
+            transform.position = portal.position - offset;
 
-            float angularDiffInPortalRotations = Quaternion.Angle(portal.localRotation, OtherPortal.localRotation);
+            float angularDiffInPortalRotations = Quaternion.Angle(portal.rotation, OtherPortal.rotation);
+
+            Debug.Log(portal.rotation);
+            Debug.Log(OtherPortal.rotation);
+
 
             Quaternion portalRotationDiff = Quaternion.AngleAxis(angularDiffInPortalRotations, Vector3.up);
             Vector3 newCameraDir = (portalRotationDiff * playerCamera.forward);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, -OtherPortal.parent.parent.rotation.y, transform.rotation.z);
             transform.rotation = Quaternion.LookRotation(newCameraDir, Vector3.up);
         }
     }
