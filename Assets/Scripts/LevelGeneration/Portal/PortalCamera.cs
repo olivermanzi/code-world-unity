@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class PortalCamera : MonoBehaviour
 {
@@ -30,10 +31,10 @@ public class PortalCamera : MonoBehaviour
     private Material mat;
     public Transform _otherPortal;
     private Camera cam;
+	private Vector3 previousUntranslatedPosition;
 
     private void Awake()
     {
-
          cam= gameObject.GetComponent<Camera>();
      
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
@@ -50,7 +51,7 @@ public class PortalCamera : MonoBehaviour
 
     private void Start()
     {
-                var shader = Shader.Find("Unlit/ScreenCutoutShader");
+        var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
            if (cam.targetTexture != null)
         {
@@ -62,23 +63,69 @@ public class PortalCamera : MonoBehaviour
         _otherPortal.GetComponent<MeshRenderer>().material = mat;
     }
 
+
     // Update is called once per frame
     void Update()
     {
         if(OtherPortal != null){
             Vector3 offset = playerCamera.position - OtherPortal.position;
-            transform.position = portal.position - offset;
+			transform.position = TranslatePosition(portal.position - offset);
 
+			previousUntranslatedPosition = portal.position - offset;
             float angularDiffInPortalRotations = Quaternion.Angle(portal.rotation, OtherPortal.rotation);
-
-            Debug.Log(portal.rotation);
-            Debug.Log(OtherPortal.rotation);
 
 
             Quaternion portalRotationDiff = Quaternion.AngleAxis(angularDiffInPortalRotations, Vector3.up);
             Vector3 newCameraDir = (portalRotationDiff * playerCamera.forward);
-            transform.rotation = Quaternion.Euler(transform.rotation.x, -OtherPortal.parent.parent.rotation.y, transform.rotation.z);
-            transform.rotation = Quaternion.LookRotation(newCameraDir, Vector3.up);
+
+			var defaultRotation = Quaternion.LookRotation (newCameraDir, Vector3.up);
+			transform.rotation = TranslateRotation(defaultRotation);
         }
     }
+
+    private Vector3 TranslatePosition(Vector3 defaultPosition)
+    {
+		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
+
+		Vector3 result = defaultPosition;
+
+		var offset = playerCamera.position - OtherPortal.position;
+
+
+		if (otherPortalEntranceRotation == 90) 
+		{
+			var zDiff = portal.position.x - offset.z;
+			var xDiff = portal.position.z + offset.x;
+
+			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
+		}
+		else if (otherPortalEntranceRotation == 270)
+		{
+			var zDiff = portal.position.x + offset.z;
+			var xDiff = portal.position.z - offset.x;
+
+			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
+
+		}
+
+		return result;
+    }
+
+	private Quaternion TranslateRotation(Quaternion rotation)
+	{
+		var res = rotation;
+
+		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
+		switch (otherPortalEntranceRotation) 
+		{
+		case 90:
+			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y + 90 ,res.eulerAngles.z);
+				break;
+		case 270:
+			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y - 90, res.eulerAngles.z);
+			break;
+		}
+
+		return res;
+	}
 }
