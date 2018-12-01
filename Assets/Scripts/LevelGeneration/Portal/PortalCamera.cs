@@ -31,11 +31,10 @@ public class PortalCamera : MonoBehaviour
     private Material mat;
     public Transform _otherPortal;
     private Camera cam;
-	private Vector3 previousUntranslatedPosition;
 
     private void Awake()
     {
-         cam= gameObject.GetComponent<Camera>();
+        cam= gameObject.GetComponent<Camera>();
      
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
@@ -53,7 +52,7 @@ public class PortalCamera : MonoBehaviour
     {
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
-           if (cam.targetTexture != null)
+        if (cam.targetTexture != null)
         {
             cam.targetTexture.Release();
         }
@@ -71,10 +70,7 @@ public class PortalCamera : MonoBehaviour
             Vector3 offset = playerCamera.position - OtherPortal.position;
 			transform.position = TranslatePosition(portal.position - offset);
 
-			previousUntranslatedPosition = portal.position - offset;
             float angularDiffInPortalRotations = Quaternion.Angle(portal.rotation, OtherPortal.rotation);
-
-
             Quaternion portalRotationDiff = Quaternion.AngleAxis(angularDiffInPortalRotations, Vector3.up);
             Vector3 newCameraDir = (portalRotationDiff * playerCamera.forward);
 
@@ -83,34 +79,29 @@ public class PortalCamera : MonoBehaviour
         }
     }
 
+	//Aligns portal camera's position with player movement regarding the rotation of the portal leading to it
     private Vector3 TranslatePosition(Vector3 defaultPosition)
     {
-		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
-
 		Vector3 result = defaultPosition;
-
 		var offset = playerCamera.position - OtherPortal.position;
 
-
+		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
 		if (otherPortalEntranceRotation == 90) 
 		{
 			var zDiff = portal.position.x - offset.z;
 			var xDiff = portal.position.z + offset.x;
-
 			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
 		}
 		else if (otherPortalEntranceRotation == 270)
 		{
 			var zDiff = portal.position.x + offset.z;
 			var xDiff = portal.position.z - offset.x;
-
 			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
-
 		}
-
 		return result;
     }
 
+	//Aligns portal camera's rotation with player camera rotation regarding the rotation of the portal leading to it
 	private Quaternion TranslateRotation(Quaternion rotation)
 	{
 		var res = rotation;
@@ -125,7 +116,6 @@ public class PortalCamera : MonoBehaviour
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y - 90, res.eulerAngles.z);
 			break;
 		}
-
 		return res;
 	}
 }
