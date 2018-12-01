@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
-    private Transform player;
     public Transform receiver;
 
-    private bool isOverlapping = false;
+	private Transform player;
+	private bool isOverlapping = false;
 
     private void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+		player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update () 
+	{
         if (isOverlapping == true && receiver != null)
         {
-            Vector3 portalToPlayer = player.position - transform.position;
-            float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
-            isOverlapping = false;
-            var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform.position;
-            var camrot =  receiver.transform.parent.parent.parent.Find("PortalCamera").transform.rotation;
-            player.transform.position = new Vector3(destination.x, player.transform.position.y, destination.z);
+			TeleportPlayer ();
+			isOverlapping = false;
         }
     }
 
@@ -34,4 +31,18 @@ public class Portal : MonoBehaviour {
             isOverlapping = true;
         }
     }
+
+	private void TeleportPlayer()
+	{
+		Vector3 portalToPlayer = player.position - transform.position;
+		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
+		//If Player entered portal through front
+		if (dotProduct < 1f) {
+			var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
+			var direction = destination.transform.InverseTransformDirection(Vector3.forward);
+			player.LookAt (direction);
+			Debug.Log (player.rotation.eulerAngles);
+			player.transform.position = destination.position;
+		}
+	}
 }
