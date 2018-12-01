@@ -11,20 +11,19 @@ public class Portal : MonoBehaviour {
 
     private void Start()
     {
-		player = GameObject.FindWithTag("Player").transform.GetChild(0);
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update () {
         if (isOverlapping == true && receiver != null)
         {
-			var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
             isOverlapping = false;
-			player.transform.position = new Vector3(destination.position.x, player.transform.position.y, destination.position.z);
-			player.transform.rotation = destination.rotation;
-
+            var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform.position;
+            var camrot =  receiver.transform.parent.parent.parent.Find("PortalCamera").transform.rotation;
+            player.transform.position = new Vector3(destination.x, player.transform.position.y, destination.z);
         }
     }
 
