@@ -3,39 +3,30 @@ using System;
 
 public class PortalCamera : MonoBehaviour
 {
-
+	private Transform _otherPortal;
+	public Transform OtherPortal
+	{
+		get
+		{
+			return _otherPortal;
+		}
+		set
+		{
+			_otherPortal = value;
+			if(_otherPortal != null)
+			{
+				_otherPortal.GetComponent<MeshRenderer>().material = mat;
+			}
+		}
+	}
     public Transform playerCamera;
     public Transform portal;
-    public Transform OtherPortal
-    {
-        get
-        {
-            return _otherPortal;
-        }
-        set
-        {
-            _otherPortal = value;
-            if(_otherPortal != null)
-            {
-                _otherPortal.GetComponent<MeshRenderer>().material = mat;
-                Debug.Log("Shiieet");
-
-            }
-            else
-            {
-                Debug.Log("omegalol");
-
-            }
-        }
-    }
     private Material mat;
-    public Transform _otherPortal;
     private Camera cam;
-	private Vector3 previousUntranslatedPosition;
 
     private void Awake()
     {
-         cam= gameObject.GetComponent<Camera>();
+        cam= gameObject.GetComponent<Camera>();
      
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
@@ -53,7 +44,7 @@ public class PortalCamera : MonoBehaviour
     {
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
-           if (cam.targetTexture != null)
+       	if (cam.targetTexture != null)
         {
             cam.targetTexture.Release();
         }
@@ -71,9 +62,7 @@ public class PortalCamera : MonoBehaviour
             Vector3 offset = playerCamera.position - OtherPortal.position;
 			transform.position = TranslatePosition(portal.position - offset);
 
-			previousUntranslatedPosition = portal.position - offset;
             float angularDiffInPortalRotations = Quaternion.Angle(portal.rotation, OtherPortal.rotation);
-
 
             Quaternion portalRotationDiff = Quaternion.AngleAxis(angularDiffInPortalRotations, Vector3.up);
             Vector3 newCameraDir = (portalRotationDiff * playerCamera.forward);
@@ -83,34 +72,29 @@ public class PortalCamera : MonoBehaviour
         }
     }
 
+	//Align PortalCamera movement with player movement with regards to rotation of the OtherPortal's gateway object
     private Vector3 TranslatePosition(Vector3 defaultPosition)
     {
-		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
-
 		Vector3 result = defaultPosition;
-
 		var offset = playerCamera.position - OtherPortal.position;
 
-
+		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
 		if (otherPortalEntranceRotation == 90) 
 		{
 			var zDiff = portal.position.x - offset.z;
 			var xDiff = portal.position.z + offset.x;
-
 			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
 		}
 		else if (otherPortalEntranceRotation == 270)
 		{
 			var zDiff = portal.position.x + offset.z;
 			var xDiff = portal.position.z - offset.x;
-
 			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
-
 		}
-
 		return result;
     }
 
+	//Align PortalCamera rotation with player camera rot with regards to rotation of the OtherPortal's gateway object
 	private Quaternion TranslateRotation(Quaternion rotation)
 	{
 		var res = rotation;
@@ -125,7 +109,6 @@ public class PortalCamera : MonoBehaviour
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y - 90, res.eulerAngles.z);
 			break;
 		}
-
 		return res;
 	}
 }

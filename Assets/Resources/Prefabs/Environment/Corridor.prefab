@@ -668,7 +668,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1214101258205426}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -28.742971, y: 20.576944, z: -25.865389}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4353516474645308}
@@ -1511,6 +1511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
   portal: {fileID: 4017822473146974}
+  _otherPortal: {fileID: 0}
 --- !u!114 &114866347342119352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1519,7 +1520,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1651091850013600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec07f672ff35a74aae5e0451057a6de, type: 3}
+  m_Script: {fileID: 11500000, guid: a2ac8c93086c34740ba7166363917096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
@@ -1542,7 +1543,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1754705294499648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec07f672ff35a74aae5e0451057a6de, type: 3}
+  m_Script: {fileID: 11500000, guid: a2ac8c93086c34740ba7166363917096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}

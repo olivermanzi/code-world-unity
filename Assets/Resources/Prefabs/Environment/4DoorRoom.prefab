@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4590730627486772}
   m_Layer: 0
-  m_Name: randomclass3
+  m_Name: 4DoorRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1628440921450046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec07f672ff35a74aae5e0451057a6de, type: 3}
+  m_Script: {fileID: 11500000, guid: a2ac8c93086c34740ba7166363917096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
@@ -2199,7 +2199,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812416340988952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec07f672ff35a74aae5e0451057a6de, type: 3}
+  m_Script: {fileID: 11500000, guid: a2ac8c93086c34740ba7166363917096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1265492397964224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec07f672ff35a74aae5e0451057a6de, type: 3}
+  m_Script: {fileID: 11500000, guid: a2ac8c93086c34740ba7166363917096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
@@ -2223,7 +2223,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1900342926015678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec07f672ff35a74aae5e0451057a6de, type: 3}
+  m_Script: {fileID: 11500000, guid: a2ac8c93086c34740ba7166363917096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
