@@ -6,7 +6,8 @@ namespace Project
 {
 	public class NPC : MonoBehaviour, IInteractable {
 
-		private NPCObject npcInfo;
+		NPCObject npcInfo;
+		string npcText;
 		// Use this for initialization
 		void Start () {
 			//DEBUG STATEMENTS
@@ -22,23 +23,20 @@ namespace Project
 		public void Interact()
 		{
 			Debug.Log("Interaction method run");
-			this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+			this.gameObject.GetComponent<TextMesh>().text = npcText;
 			StartCoroutine(InteractionTimeout());
-			this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-
 		}
 
 		IEnumerator InteractionTimeout()
 		{
 			yield return new WaitForSeconds(7);
+			this.gameObject.GetComponent<TextMesh>().text = "";
 		}
 
 		public void Populate(NPCObject info)
 		{
-			this.npcInfo.type = info.type;
-			this.npcInfo.varName = info.varName;
-			this.npcInfo.value = info.value;
-			this.gameObject.GetComponent<TextMesh>().text = npcInfo.ToString();
+			npcInfo = new NPCObject(info.type, info.varName, info.value);
+			npcText = npcInfo.ToString();
 		}
 	}
 
