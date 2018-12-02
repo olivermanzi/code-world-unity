@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 95552520352325874}
   - component: {fileID: 23058358319331260}
   - component: {fileID: 102439461831986460}
+  - component: {fileID: 114122464579814134}
   m_Layer: 0
   m_Name: modelDouble
   m_TagString: Interactable
@@ -1443,7 +1444,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803605666635896}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1511,6 +1512,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114122464579814134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803605666635896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca264b29aba1aff4f926b4a3a16dfc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137892926000187110
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
