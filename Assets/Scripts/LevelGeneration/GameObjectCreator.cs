@@ -1,31 +1,34 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GameObjectCreator : ScriptableObject
-{
-    private RoomCreator _roomCreator;
-    private ConnectionGenerator _connectionGenerator;
-
-    public void OnEnable()
+namespace Project{
+    public class GameObjectCreator : ScriptableObject
     {
-        _roomCreator = CreateInstance("RoomCreator") as RoomCreator;
-        _connectionGenerator = CreateInstance("ConnectionGenerator") as ConnectionGenerator;
-    }
+        private RoomCreator _roomCreator;
+        private ConnectionGenerator _connectionGenerator;
 
-    public void Compose (ClassObject classObject)
-    {
-        List<GameObject> items = _roomCreator.CreateRoomAndExtensions(classObject);
-        _connectionGenerator.CreateConnections(items);
-    }
+        public void OnEnable()
+        {
+            _roomCreator = CreateInstance("RoomCreator") as RoomCreator;
+            _connectionGenerator = CreateInstance("ConnectionGenerator") as ConnectionGenerator;
+        }
 
-    //Count number of relationships a class has
-    public static int CountRels(ClassObject classObject)
-    {
-        int res = 0;
+        public void Compose (ClassObject classObject)
+        {
+            List<GameObject> items = _roomCreator.CreateRoomAndExtensions(classObject);
+            _connectionGenerator.CreateConnections(items);
+        }
 
-        foreach (string sc in classObject.subclasses) { res++; }
-        foreach (string assoc in classObject.associations) { res++; }
-        if (!string.IsNullOrEmpty(classObject.superclass)) { res++; }
-        return res;
+        //Count number of relationships a class has
+        public static int CountRels(ClassObject classObject)
+        {
+            int res = 0;
+
+            foreach (string sc in classObject.subclasses) { res++; }
+            foreach (string assoc in classObject.associations) { res++; }
+            if (!string.IsNullOrEmpty(classObject.superclass)) { res++; }
+            return res;
+        }
     }
 }
+

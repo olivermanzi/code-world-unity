@@ -18,7 +18,7 @@
                 },
                 {
                     "name":"randomattr4",
-                    "type":"string"
+                    "type":"Double"
                 }
             ],
             "methods":[
@@ -62,7 +62,7 @@
                 },
                 {
                     "name":"randomattr4",
-                    "type":"string"
+                    "type":"Double"
                 }
             ],
             "methods":[
@@ -106,7 +106,7 @@
                 },
                 {
                     "name":"randomattr4",
-                    "type":"string"
+                    "type":"Double"
                 }
             ],
             "methods":[

@@ -11,8 +11,8 @@ namespace Project
 		// Use this for initialization
 		void Start () {
 			//DEBUG STATEMENTS
-			NPCObject testInfo = new NPCObject(NPCObject.npcType.Integer, "ExampleName", "2" );
-			Populate(testInfo);
+			//NPCObject testInfo = new NPCObject("integer", "ExampleName");
+			//Populate(testInfo);
 		}
 		
 		// Update is called once per frame
@@ -35,7 +35,7 @@ namespace Project
 
 		public void Populate(NPCObject info)
 		{
-			npcInfo = new NPCObject(info.type, info.varName, info.value);
+			npcInfo = new NPCObject(info.type, info.name);
 			npcText = npcInfo.ToString();
 		}
 	}

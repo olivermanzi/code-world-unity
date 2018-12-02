@@ -1,28 +1,23 @@
 ﻿using System;
 
-[Serializable]
-public class ClassObject
-{
-    public string name;
-    public Attribute[] attributes;
-    public Method[] methods;
-    public string[] interfaces;
-    public string[] subclasses;
-    public string superclass;
-    public string[] associations;
-    public string[] components;
-
+namespace Project{
     [Serializable]
-    public class Attribute
+    public class ClassObject
     {
         public string name;
-        public string type;
-    }
+        public NPCObject[] attributes;
+        public Method[] methods;
+        public string[] interfaces;
+        public string[] subclasses;
+        public string superclass;
+        public string[] associations;
+        public string[] components;
 
-    [Serializable]
-    public class Method
-    {
-        public string name;
-        public string returnType;
-    }
+        [Serializable]
+        public class Method
+        {
+            public string name;
+            public string returnType;
+        }
+    }    
 }
