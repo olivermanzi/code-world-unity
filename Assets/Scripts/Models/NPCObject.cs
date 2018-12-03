@@ -71,7 +71,6 @@ namespace Project
 			public override string ToString()
 			{
 				//todo
-				string sType;
 				/*switch(this.type)
 				{
 					case(npcType.Integer):
