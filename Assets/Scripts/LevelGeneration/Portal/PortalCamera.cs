@@ -79,13 +79,14 @@ public class PortalCamera : MonoBehaviour
 		var offset = playerCamera.position - OtherPortal.position;
 
 		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
-		if (otherPortalEntranceRotation == 90) 
+		int PortalEntranceRotation = (int) portal.parent.parent.rotation.eulerAngles.y;
+		if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
 		{
 			var zDiff = portal.position.x - offset.z;
 			var xDiff = portal.position.z + offset.x;
 			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
 		}
-		else if (otherPortalEntranceRotation == 270)
+		else if (otherPortalEntranceRotation == 270 ||  PortalEntranceRotation == 90)
 		{
 			var zDiff = portal.position.x + offset.z;
 			var xDiff = portal.position.z - offset.x;
@@ -100,14 +101,15 @@ public class PortalCamera : MonoBehaviour
 		var res = rotation;
 
 		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
-		switch (otherPortalEntranceRotation) 
+		int PortalEntranceRotation = (int) portal.parent.parent.rotation.eulerAngles.y;
+
+		if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
 		{
-		case 90:
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y + 90 ,res.eulerAngles.z);
-				break;
-		case 270:
+		}
+		else if (otherPortalEntranceRotation == 270 ||  PortalEntranceRotation == 90)
+		{
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y - 90, res.eulerAngles.z);
-			break;
 		}
 		return res;
 	}
