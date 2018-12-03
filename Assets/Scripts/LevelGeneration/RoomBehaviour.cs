@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RoomBehaviour : MonoBehaviour
 {
-    public List<GameObject> subrooms;
+    public List<Transform> subrooms;
     private Transform _componentsRoomTeleporter;
     private Transform _associationsRoomTeleporter;
     private Transform _inheritenceRoomTeleporter;
@@ -73,6 +73,7 @@ public class RoomBehaviour : MonoBehaviour
             {
                 RightTeleporter.GetComponent<Portal>().receiver = value;
             }
+			UpdateSubRooms ();
         }
     }
     public Transform AssociationsRoomTeleporter
@@ -88,6 +89,7 @@ public class RoomBehaviour : MonoBehaviour
             {
                 LeftTeleporter.GetComponent<Portal>().receiver = value;
             }
+			UpdateSubRooms ();
         }
     }
     public Transform InheritenceRoomTeleporter
@@ -103,6 +105,7 @@ public class RoomBehaviour : MonoBehaviour
             {
                 FrontTeleporter.GetComponent<Portal>().receiver = value;
             }
+			UpdateSubRooms ();
         }
     }
     public Transform PreviousRoomTeleporter
@@ -118,19 +121,19 @@ public class RoomBehaviour : MonoBehaviour
             {
                 BackTeleporter.Find("PortalTeleporter").GetComponent<Portal>().receiver = value;
             }
+			UpdateSubRooms ();
         }
     }
 
     // Use this for initialization
     void Awake()
     {
-        subrooms = new List<GameObject>(); // UH WHATEVER THAT IS FOR
+        subrooms = new List<Transform>();
 
         for (var i = 0; i < transform.childCount; i++)
         {
             if (transform.GetChild(i).CompareTag("LeftDoorEntry"))
             {
-                Debug.Log("yoot");
                 LeftTeleporter = transform.GetChild(i).transform.Find("Doorway/PortalTeleporter");
             }
             if (transform.GetChild(i).CompareTag("RightDoorEntry"))
@@ -153,10 +156,27 @@ public class RoomBehaviour : MonoBehaviour
     }
 
     public void SetupTeleports()
-    {
-        LeftTeleporter.GetComponent<Portal>().receiver = AssociationsRoomTeleporter;
-        RightTeleporter.GetComponent<Portal>().receiver = ComponentsRoomTeleporter;
-        FrontTeleporter.GetComponent<Portal>().receiver = InheritenceRoomTeleporter;
-        BackTeleporter.GetComponent<Portal>().receiver = PreviousRoomTeleporter;
-    }
+	{
+		LeftTeleporter.GetComponent<Portal> ().receiver = AssociationsRoomTeleporter;
+		RightTeleporter.GetComponent<Portal> ().receiver = ComponentsRoomTeleporter;
+		FrontTeleporter.GetComponent<Portal> ().receiver = InheritenceRoomTeleporter;
+		BackTeleporter.GetComponent<Portal> ().receiver = PreviousRoomTeleporter;
+	}
+
+	public void SetObserverCamera(Transform newCamera)
+	{
+		foreach (var room in subrooms) {
+
+			room.Find ("PortalCamera").GetComponent<PortalCamera> ().playerCamera = newCamera;
+		}
+	}
+
+	private void UpdateSubRooms()
+	{
+		subrooms = new List<Transform>();
+		if(AssociationsRoomTeleporter != null) subrooms.Add (AssociationsRoomTeleporter.parent.parent.parent);
+		if(ComponentsRoomTeleporter != null) subrooms.Add (ComponentsRoomTeleporter.parent.parent.parent);
+		if(InheritenceRoomTeleporter != null) subrooms.Add (InheritenceRoomTeleporter.parent.parent.parent);
+		if(PreviousRoomTeleporter != null) subrooms.Add (PreviousRoomTeleporter.parent.parent.parent);
+	}
 }

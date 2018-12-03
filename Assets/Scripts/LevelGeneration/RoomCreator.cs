@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project{
+namespace Project
+{
     public class RoomCreator : ScriptableObject
     {
         private Vector3 NextItemPosition
@@ -17,22 +18,32 @@ namespace Project{
 
         System.Random rnd = new System.Random();
 
-
-        private GameObject _corridor;
         private string _room;
         private Vector3 _nextItemPosition = new Vector3(0, 0, 0);
         private Vector3 _offset = new Vector3(0, 0, 150);
 
-        private List<GameObject> items; 
+        //Game objects for building corridors
+        private GameObject _corridor;
+        private GameObject _2doorCorridor;
+        private GameObject _2doorCorridorEx;
+        private GameObject _doorwayWall;
+        private GameObject _wallEnding;
 
         public void OnEnable()
         {
             _corridor = Resources.Load<GameObject>("Prefabs/Environment/Corridor");
+            _2doorCorridor = Resources.Load<GameObject>("Prefabs/Environment/2DoorCorridorBase");
+            _2doorCorridorEx = Resources.Load<GameObject>("Prefabs/Environment/2DoorCorridorExtension");
+            _doorwayWall = Resources.Load<GameObject>("Prefabs/Environment/DoorwayWall");
+            _wallEnding = Resources.Load<GameObject>("Prefabs/Environment/WallEnding");
             items = new List<GameObject>();
         }
 
+
+        private List<GameObject> items;
+
         public List<GameObject> CreateRoomAndExtensions(ClassObject classObject)
-         {
+        {
             var room = GetRoom(classObject);
             var newRoom = InstantiateEnvironmentItem(room.RoomGO);
 
@@ -53,25 +64,26 @@ namespace Project{
             //Path to prefab file
             string _room = "Prefabs/Environment/" + (rels > 4 ? 4 : rels) + "DoorRoom";
 
-            return new Room(classObject,Resources.Load<GameObject>(_room));       
+            return new Room(classObject, Resources.Load<GameObject>(_room));
         }
 
         private void CreateAttributes(Room room, GameObject newRoom)
         {
             int i = 0;
-            if (room.Info.attributes.Length > 0){
+            if (room.Info.attributes.Length > 0)
+            {
                 foreach (NPCObject npc in room.Info.attributes)
                 {
                     Vector3 position;
                     GameObject obj;
-                    switch(npc.type)
+                    switch (npc.type)
                     {
-                            case("int"):
+                        case ("int"):
                             obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
                             //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
                             Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
-                            while(!checkIfPosEmpty(position))
+                            while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
@@ -79,84 +91,84 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                            case("Double"):
+                        case ("Double"):
                             obj = Resources.Load("Prefabs/Actors/modelDouble") as GameObject;
                             //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
                             Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
-                            while(!checkIfPosEmpty(position))
+                            while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
-                            obj.transform.localPosition = position;                            
+                            obj.transform.localPosition = position;
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                            case("Float"):
+                        case ("Float"):
                             obj = Resources.Load("Prefabs/Actors/modelFloat") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
-                            while(!checkIfPosEmpty(position))
+                            while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
-                            obj.transform.localPosition = position;    
+                            obj.transform.localPosition = position;
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                            case("Boolean"):
+                        case ("Boolean"):
                             obj = Resources.Load("Prefabs/Actors/modelBoolean") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
-                            while(!checkIfPosEmpty(position))
+                            while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
-                            obj.transform.localPosition = position;    
+                            obj.transform.localPosition = position;
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                            case("Char"):
+                        case ("Char"):
                             obj = Resources.Load("Prefabs/Actors/modelChar") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
-                            while(!checkIfPosEmpty(position))
+                            while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
-                            obj.transform.localPosition = position;    
+                            obj.transform.localPosition = position;
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                            case("Short"):
+                        case ("Short"):
                             obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
-                            while(!checkIfPosEmpty(position))
+                            while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
-                            obj.transform.localPosition = position;    
+                            obj.transform.localPosition = position;
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                            case("Long"):
+                        case ("Long"):
                             obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
-                            while(!checkIfPosEmpty(position))
+                            while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
-                            obj.transform.localPosition = position;    
+                            obj.transform.localPosition = position;
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                            default:
+                        default:
                             Debug.Log("No");
                             break;
                     }
-                    Debug.Log("Created objects: " + i++);                
+                    Debug.Log("Created objects: " + i++);
                 }
             }
         }
@@ -164,9 +176,9 @@ namespace Project{
         private bool checkIfPosEmpty(Vector3 pos)
         {
             GameObject[] interactables = GameObject.FindGameObjectsWithTag("Interactable");
-            foreach(GameObject current in interactables)
+            foreach (GameObject current in interactables)
             {
-                if(current.transform.position == pos)
+                if (current.transform.position == pos)
                     return false;
             }
             return true;
@@ -182,45 +194,39 @@ namespace Project{
 
         private void CreateAssociationsCorridor(Room room, GameObject newRoom)
         {
-        var corridor = InstantiateEnvironmentItem(_corridor);
+            var corridor = BuildCorridor(room.Info.associations);
             for (int i = 0; i < corridor.transform.childCount; i++)
             {
-                if (corridor.transform.GetChild(i).CompareTag("BackDoorEntry"))
+                if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
                 {
-                    Debug.Log("yeet");
-                var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
+                    var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                     newRoom.GetComponent<RoomBehaviour>().AssociationsRoomTeleporter = portal;
                     portal.GetComponent<Portal>().receiver = newRoom.GetComponent<RoomBehaviour>().LeftTeleporter;
                 }
-            
+
             }
             for (int i = 0; i < corridor.transform.childCount; i++)
             {
                 if (corridor.transform.GetChild(i).CompareTag("PortalCam"))
                 {
-                    Debug.Log("asdadasd");
-
                     corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal = newRoom.GetComponent<RoomBehaviour>().LeftTeleporter.transform.parent.Find("Portal");
                 }
             }
-        
         }
 
         private void CreateComponentsCorridor(Room room, GameObject newRoom)
         {
-            var corridor = InstantiateEnvironmentItem(_corridor);
+            var corridor = BuildCorridor(room.Info.components);
             var roomBH = newRoom.GetComponent<RoomBehaviour>();
 
             for (int i = 0; i < corridor.transform.childCount; i++)
             {
-                if (corridor.transform.GetChild(i).CompareTag("BackDoorEntry"))
+                if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
                 {
-                    Debug.Log("yeet");
                     var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                     roomBH.ComponentsRoomTeleporter = portal;
-                    portal.GetComponent<Portal>().receiver =roomBH.RightTeleporter;
+                    portal.GetComponent<Portal>().receiver = roomBH.RightTeleporter;
                     Debug.Log(roomBH.RightTeleporter);
-
                 }
 
             }
@@ -228,19 +234,18 @@ namespace Project{
             {
                 if (corridor.transform.GetChild(i).CompareTag("PortalCam"))
                 {
-                    corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal =roomBH.RightTeleporter.transform.parent.Find("Portal").transform;
+                    corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal = roomBH.RightTeleporter.transform.parent.Find("Portal").transform;
                 }
             }
         }
 
         private void CreateInheritenceStairs(Room room, GameObject newRoom)
         {
-            var corridor = InstantiateEnvironmentItem(_corridor);
+            var corridor = BuildCorridor(room.Info.subclasses);
             for (int i = 0; i < corridor.transform.childCount; i++)
             {
-                if (corridor.transform.GetChild(i).CompareTag("BackDoorEntry"))
+                if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
                 {
-                    Debug.Log("yeet");
                     var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                     newRoom.GetComponent<RoomBehaviour>().InheritenceRoomTeleporter = portal;
                     portal.GetComponent<Portal>().receiver = newRoom.GetComponent<RoomBehaviour>().FrontTeleporter;
@@ -262,6 +267,38 @@ namespace Project{
             newGameObject.transform.position = NextItemPosition;
             items.Add(newGameObject); //what is this for? i dont remember
             return newGameObject;
+        }
+
+
+        private GameObject BuildCorridor(string[] connectionsList)
+        {
+            GameObject corr = null;
+            Transform currentEndPoint;
+
+            int connections = connectionsList.Length;
+
+            if (connections == 1)
+            {
+                corr = InstantiateEnvironmentItem(_corridor);
+            }
+            else if (connections >= 2)
+            {
+                corr = InstantiateEnvironmentItem(_2doorCorridor);
+                currentEndPoint = corr.transform.Find("Endpoint");
+                connections -= 2;
+                while (connections >= 2)
+                {
+                    Debug.Log(connections);
+                    var extension = Instantiate(_2doorCorridorEx);
+                    extension.transform.position = currentEndPoint.position + (extension.transform.position - extension.transform.Find("Startpoint").position);
+                    currentEndPoint = extension.transform.Find("Endpoint");
+                    connections -= 2;
+                }
+                var ending = connections == 1 ? Instantiate(_doorwayWall) : Instantiate(_wallEnding);
+                ending.transform.position = currentEndPoint.position;
+            }
+
+            return corr;
         }
     }
 }
