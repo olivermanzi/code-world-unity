@@ -62,9 +62,8 @@ public class RoomCreator : ScriptableObject
        var corridor = InstantiateEnvironmentItem(_corridor);
         for (int i = 0; i < corridor.transform.childCount; i++)
         {
-            if (corridor.transform.GetChild(i).CompareTag("BackDoorEntry"))
+			if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
             {
-                Debug.Log("yeet");
                var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                 newRoom.GetComponent<RoomBehaviour>().AssociationsRoomTeleporter = portal;
                 portal.GetComponent<Portal>().receiver = newRoom.GetComponent<RoomBehaviour>().LeftTeleporter;
@@ -75,8 +74,6 @@ public class RoomCreator : ScriptableObject
         {
             if (corridor.transform.GetChild(i).CompareTag("PortalCam"))
             {
-                Debug.Log("asdadasd");
-
                 corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal = newRoom.GetComponent<RoomBehaviour>().LeftTeleporter.transform.parent.Find("Portal");
             }
         }
@@ -90,9 +87,8 @@ public class RoomCreator : ScriptableObject
 
         for (int i = 0; i < corridor.transform.childCount; i++)
         {
-            if (corridor.transform.GetChild(i).CompareTag("BackDoorEntry"))
+            if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
             {
-                Debug.Log("yeet");
                 var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                 roomBH.ComponentsRoomTeleporter = portal;
                 portal.GetComponent<Portal>().receiver =roomBH.RightTeleporter;
@@ -115,9 +111,8 @@ public class RoomCreator : ScriptableObject
         var corridor = InstantiateEnvironmentItem(_corridor);
         for (int i = 0; i < corridor.transform.childCount; i++)
         {
-            if (corridor.transform.GetChild(i).CompareTag("BackDoorEntry"))
+			if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
             {
-                Debug.Log("yeet");
                 var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                 newRoom.GetComponent<RoomBehaviour>().InheritenceRoomTeleporter = portal;
                 portal.GetComponent<Portal>().receiver = newRoom.GetComponent<RoomBehaviour>().FrontTeleporter;
