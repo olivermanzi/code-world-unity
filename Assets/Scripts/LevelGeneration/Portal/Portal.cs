@@ -43,7 +43,7 @@ public class Portal : MonoBehaviour {
 		if (dotProduct < 1f) {
 			player.transform.rotation = destination.rotation;
 			player.transform.position = destination.position;
-
+			 
 			//Set portalCamera to focus on door entered
 			var cam = attachedCamera.GetComponent<PortalCamera>();
 			cam.portal = transform.parent.Find("Portal").transform;

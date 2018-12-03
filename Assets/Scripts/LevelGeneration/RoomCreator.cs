@@ -14,16 +14,26 @@ public class RoomCreator : ScriptableObject
         }
     }
 
-    private GameObject _corridor;
     private string _room;
     private Vector3 _nextItemPosition = new Vector3(0, 0, 0);
     private Vector3 _offset = new Vector3(0, 0, 150);
 
     private List<GameObject> items; 
 
+	//Game objects for building corridors
+	private GameObject _corridor;
+	private GameObject _2doorCorridor;
+	private GameObject _2doorCorridorEx;
+	private GameObject _doorwayWall;
+	private GameObject _wallEnding;
+
     public void OnEnable()
     {
         _corridor = Resources.Load<GameObject>("Prefabs/Environment/Corridor");
+		_2doorCorridor = Resources.Load<GameObject>("Prefabs/Environment/2DoorCorridorBase");
+		_2doorCorridorEx = Resources.Load<GameObject>("Prefabs/Environment/2DoorCorridorExtension");
+		_doorwayWall = Resources.Load<GameObject>("Prefabs/Environment/DoorwayWall");
+		_wallEnding = Resources.Load<GameObject>("Prefabs/Environment/WallEnding");
         items = new List<GameObject>();
     }
 
@@ -59,7 +69,7 @@ public class RoomCreator : ScriptableObject
 
     private void CreateAssociationsCorridor(Room room, GameObject newRoom)
     {
-       var corridor = InstantiateEnvironmentItem(_corridor);
+		var corridor = BuildCorridor(room.Info.associations);
         for (int i = 0; i < corridor.transform.childCount; i++)
         {
 			if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
@@ -82,7 +92,7 @@ public class RoomCreator : ScriptableObject
 
     private void CreateComponentsCorridor(Room room, GameObject newRoom)
     {
-        var corridor = InstantiateEnvironmentItem(_corridor);
+		var corridor = BuildCorridor(room.Info.components);
         var roomBH = newRoom.GetComponent<RoomBehaviour>();
 
         for (int i = 0; i < corridor.transform.childCount; i++)
@@ -93,7 +103,6 @@ public class RoomCreator : ScriptableObject
                 roomBH.ComponentsRoomTeleporter = portal;
                 portal.GetComponent<Portal>().receiver =roomBH.RightTeleporter;
                 Debug.Log(roomBH.RightTeleporter);
-
             }
 
         }
@@ -108,7 +117,7 @@ public class RoomCreator : ScriptableObject
 
     private void CreateInheritenceStairs(Room room, GameObject newRoom)
     {
-        var corridor = InstantiateEnvironmentItem(_corridor);
+		var corridor = BuildCorridor(room.Info.subclasses);
         for (int i = 0; i < corridor.transform.childCount; i++)
         {
 			if (corridor.transform.GetChild(i).tag == "BackDoorEntry")
@@ -135,4 +144,34 @@ public class RoomCreator : ScriptableObject
         items.Add(newGameObject); //what is this for? i dont remember
         return newGameObject;
     }
+
+	private GameObject BuildCorridor (string[] connectionsList)
+	{
+		GameObject corr = null;
+		Transform currentEndPoint;
+
+		int connections = connectionsList.Length;
+
+		if (connections == 1) {
+			corr = InstantiateEnvironmentItem(_corridor);
+		} 
+		else if (connections >= 2) 
+		{
+			corr = InstantiateEnvironmentItem(_2doorCorridor);
+			currentEndPoint = corr.transform.Find ("Endpoint");
+			connections -= 2;
+			while (connections >= 2) 
+			{
+				Debug.Log (connections);
+				var extension = Instantiate (_2doorCorridorEx);
+				extension.transform.position = currentEndPoint.position + (extension.transform.position - extension.transform.Find("Startpoint").position);
+				currentEndPoint = extension.transform.Find ("Endpoint");
+				connections -= 2;
+			}
+			var ending = connections == 1 ? Instantiate (_doorwayWall) : Instantiate(_wallEnding);
+			ending.transform.position = currentEndPoint.position;
+		}
+
+		return corr;
+	} 
 }
