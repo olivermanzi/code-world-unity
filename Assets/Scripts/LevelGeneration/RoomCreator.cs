@@ -15,6 +15,9 @@ namespace Project{
             }
         }
 
+        System.Random rnd = new System.Random();
+
+
         private GameObject _corridor;
         private string _room;
         private Vector3 _nextItemPosition = new Vector3(0, 0, 0);
@@ -29,14 +32,16 @@ namespace Project{
         }
 
         public List<GameObject> CreateRoomAndExtensions(ClassObject classObject)
-        {
+         {
             var room = GetRoom(classObject);
             var newRoom = InstantiateEnvironmentItem(room.RoomGO);
-            
+
+            CreateAttributes(room, newRoom);
+
             newRoom.gameObject.name = room.Info.name;
             newRoom.AddComponent<RoomBehaviour>();
+
             CreateExtensions(room, newRoom);
-            CreateAttributes(room);
             return items;
         }
 
@@ -51,67 +56,91 @@ namespace Project{
             return new Room(classObject,Resources.Load<GameObject>(_room));       
         }
 
-        private void CreateAttributes(Room room)
+        private void CreateAttributes(Room room, GameObject newRoom)
         {
-            foreach (NPCObject npc in room.Info.attributes)
-            {
-                Debug.Log(npc.type);
-                AttributeLoader(npc, room);
+            int i = 0;
+            if (room.Info.attributes.Length > 0){
+                foreach (NPCObject npc in room.Info.attributes)
+                {
+                    Vector3 position;
+                    GameObject obj;
+                    switch(npc.type)
+                    {
+                            case("int"):
+                            obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while(!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;
+                            obj.GetComponent<NPC>().Populate(npc);
+                            break;
+
+                            case("Double"):
+                            obj = Resources.Load("Prefabs/Actors/modelDouble") as GameObject;
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while(!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;                            
+                            obj.GetComponent<NPC>().Populate(npc);
+                            break;
+
+                            case("Float"):
+                            obj = Resources.Load("Prefabs/Actors/modelFloat") as GameObject;
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            obj.GetComponent<NPC>().Populate(npc);
+                            break;
+
+                            case("Boolean"):
+                            obj = Resources.Load("Prefabs/Actors/modelBoolean") as GameObject;
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            obj.GetComponent<NPC>().Populate(npc);
+                            break;
+
+                            case("Char"):
+                            obj = Resources.Load("Prefabs/Actors/modelChar") as GameObject;
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            obj.GetComponent<NPC>().Populate(npc);
+                            break;
+
+                            case("Short"):
+                            obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            obj.GetComponent<NPC>().Populate(npc);
+                            obj.transform.parent = room.RoomGO.transform;
+                            break;
+
+                            case("Long"):
+                            obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            obj.GetComponent<NPC>().Populate(npc);
+                            break;
+
+                            default:
+                            Debug.Log("No");
+                            break;
+                    }
+                    Debug.Log("Created objects: " + i++);                
+                }
             }
         }
 
-        private void AttributeLoader(NPCObject npc, Room room)
+        private bool checkIfPosEmpty(Vector3 pos)
         {
-            GameObject obj;
-            switch(npc.type)
+            GameObject[] interactables = GameObject.FindGameObjectsWithTag("Interactable");
+            foreach(GameObject current in interactables)
             {
-					case("int"):
-                    obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
-                    Instantiate(obj, new Vector3(room.RoomGO.transform.position.x, room.RoomGO.transform.position.y, room.RoomGO.transform.position.z) , Quaternion.identity, room.RoomGO.transform);
-                    obj.GetComponent<NPC>().Populate(npc);
-					break;
-
-					case("Double"):
-                    obj = Resources.Load("Prefabs/Actors/modelDouble") as GameObject;
-                    Instantiate(obj, new Vector3(room.RoomGO.transform.position.x, room.RoomGO.transform.position.y, room.RoomGO.transform.position.z) , Quaternion.identity, room.RoomGO.transform);
-                    obj.GetComponent<NPC>().Populate(npc);
-					break;
-
-					case("Float"):
-                    obj = Resources.Load("Prefabs/Actors/modelFloat") as GameObject;
-                    Instantiate(obj, new Vector3(room.RoomGO.transform.position.x, room.RoomGO.transform.position.y, room.RoomGO.transform.position.z) , Quaternion.identity, room.RoomGO.transform);
-                    obj.GetComponent<NPC>().Populate(npc);
-					break;
-
-					case("Boolean"):
-                    obj = Resources.Load("Prefabs/Actors/modelBoolean") as GameObject;
-                    Instantiate(obj, new Vector3(room.RoomGO.transform.position.x, room.RoomGO.transform.position.y, room.RoomGO.transform.position.z) , Quaternion.identity, room.RoomGO.transform);
-                    obj.GetComponent<NPC>().Populate(npc);
-					break;
-
-					case("Char"):
-                    obj = Resources.Load("Prefabs/Actors/modelChar") as GameObject;
-                    Instantiate(obj, new Vector3(room.RoomGO.transform.position.x, room.RoomGO.transform.position.y, room.RoomGO.transform.position.z) , Quaternion.identity, room.RoomGO.transform);
-                    obj.GetComponent<NPC>().Populate(npc);
-					break;
-
-					case("Short"):
-                    obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
-                    Instantiate(obj, new Vector3(room.RoomGO.transform.position.x, room.RoomGO.transform.position.y, room.RoomGO.transform.position.z) , Quaternion.identity, room.RoomGO.transform);
-                    obj.GetComponent<NPC>().Populate(npc);
-                    obj.transform.parent = room.RoomGO.transform;
-					break;
-
-					case("Long"):
-                    obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
-                    Instantiate(obj, new Vector3(room.RoomGO.transform.position.x, room.RoomGO.transform.position.y, room.RoomGO.transform.position.z) , Quaternion.identity, room.RoomGO.transform);
-                    obj.GetComponent<NPC>().Populate(npc);
-					break;
-
-					default:
-                    Debug.Log("No");
-					break;
+                if(current.transform.position == pos)
+                    return false;
             }
+            return true;
         }
 
         private void CreateExtensions(Room room, GameObject newRoom)

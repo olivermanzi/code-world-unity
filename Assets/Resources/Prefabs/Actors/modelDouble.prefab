@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 23058358319331260}
   - component: {fileID: 102439461831986460}
   - component: {fileID: 114122464579814134}
+  - component: {fileID: 136609722372173494}
   m_Layer: 0
   m_Name: modelDouble
   m_TagString: Interactable
@@ -785,7 +786,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803605666635896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -85, y: 0, z: 32}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 4874987817080112}
@@ -1453,7 +1454,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1523,6 +1524,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca264b29aba1aff4f926b4a3a16dfc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136609722372173494
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803605666635896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.12
+  m_Height: 0.96
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.46, z: 0}
 --- !u!137 &137892926000187110
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

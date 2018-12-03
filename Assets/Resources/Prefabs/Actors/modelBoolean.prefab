@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 95047359776931194}
   - component: {fileID: 23492948779927608}
   - component: {fileID: 102162087844318200}
+  - component: {fileID: 136544102758531322}
   m_Layer: 0
   m_Name: modelBoolean
   m_TagString: Interactable
@@ -377,7 +378,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -436,6 +437,19 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!136 &136544102758531322
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839533248601250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.02
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.008, z: 0}
 --- !u!137 &137624432567314132
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

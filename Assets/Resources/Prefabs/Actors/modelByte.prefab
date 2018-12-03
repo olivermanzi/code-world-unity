@@ -3127,6 +3127,7 @@ GameObject:
   - component: {fileID: 95460168935026402}
   - component: {fileID: 23299653827719442}
   - component: {fileID: 102985308906987248}
+  - component: {fileID: 136143530613310012}
   m_Layer: 0
   m_Name: modelByte
   m_TagString: Interactable
@@ -8505,7 +8506,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596135446160220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10.39}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4017920644852458}
@@ -10266,7 +10267,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10325,6 +10326,19 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!136 &136143530613310012
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596135446160220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.23
+  m_Height: 1.36
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.49, z: 0}
 --- !u!137 &137490825914679386
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
