@@ -95,31 +95,60 @@ namespace Project{
                             case("Float"):
                             obj = Resources.Load("Prefabs/Actors/modelFloat") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while(!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;    
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
                             case("Boolean"):
                             obj = Resources.Load("Prefabs/Actors/modelBoolean") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while(!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;    
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
                             case("Char"):
                             obj = Resources.Load("Prefabs/Actors/modelChar") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while(!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;    
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
                             case("Short"):
                             obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while(!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;    
                             obj.GetComponent<NPC>().Populate(npc);
-                            obj.transform.parent = room.RoomGO.transform;
                             break;
 
                             case("Long"):
                             obj = Resources.Load("Prefabs/Actors/modelInt") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while(!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;    
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
