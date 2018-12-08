@@ -8,20 +8,13 @@ namespace Project{
         {
             items.ForEach( i =>
             {
-                
+                var item = i.GetComponent<Corridor>();
+                //Check if item is corridor
+                if (item != null)
+                {
+                    //TODO Connect its doors to the associations specified in their attached script
+                }
             });
-        }
-
-        //Connects superclasses to subclasses
-        private void ConnectInheritence(Room room)
-        {
-            //TODO Create this
-        }
-
-        //Connects associated rooms with bridges 
-        private void ConnectAssociation(Room room)
-        {
-            
         }
     }
 }

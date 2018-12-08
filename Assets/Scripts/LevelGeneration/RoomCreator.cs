@@ -262,7 +262,7 @@ namespace Project
         {
             var newGameObject = Instantiate(go);
             newGameObject.transform.position = NextItemPosition;
-            items.Add(newGameObject); //what is this for? i dont remember
+            items.Add(newGameObject);
             return newGameObject;
         }
 
@@ -294,6 +294,8 @@ namespace Project
                 var ending = connections == 1 ? Instantiate(_doorwayWall) : Instantiate(_wallEnding);
                 ending.transform.position = currentEndPoint.position;
             }
+            //Attach connection names to Corridor
+            corr.GetComponent<Corridor>().Connections = connectionsList;
 
             return corr;
         }
