@@ -59,11 +59,8 @@ namespace Project
         //Determine room prefab
         private Room GetRoom(ClassObject classObject)
         {
-            int rels = GameObjectCreator.CountRels(classObject);
-
             //Path to prefab file
-            string _room = "Prefabs/Environment/" + (rels > 4 ? 4 : rels) + "DoorRoom";
-
+            string _room = "Prefabs/Environment/4DoorRoom";
             return new Room(classObject, Resources.Load<GameObject>(_room));
         }
 

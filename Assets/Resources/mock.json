@@ -2,7 +2,7 @@
     "data":
     [
         {
-            "name":"randomclass1",
+            "name":"class1",
             "attributes":[
                 {
                     "name":"randomattr1",
@@ -36,17 +36,17 @@
                 }
             ],
             "subclasses":[
-                "randomclass2"
+               "class8","class9"
             ],
             "components":[
-                "randomclass5","randomclass5","randomclass5","randomclass5","randomclass5"
+               "class3","class2","class4"
             ],
             "associations":[
-                "randomclass8","randomclass9","randomclass10","randomclass11"
+                "class5","class6","class7"
             ]
         },
         {
-            "name":"randomclass2",
+            "name":"class2",
             "attributes":[
                 {
                     "name":"randomattr1",
@@ -79,18 +79,12 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[
-                "randomclass69"
-            ],
-            "components":[
-                "randomclass5"
-            ],
-            "associations":[
-                "randomclass8","randomclass9","randomclass10","randomclass11"
-            ]
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
         },
         {
-            "name":"randomclass3",
+            "name":"class3",
             "attributes":[
                 {
                     "name":"randomattr1",
@@ -123,15 +117,237 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[
-                "randomclass21"
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
+        },
+        {
+            "name":"class4",
+            "attributes":[
+                {
+                    "name":"randomattr1",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr2",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr3",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr4",
+                    "type":"Double"
+                }
             ],
-            "components":[
-                "randomclass5"
+            "methods":[
+                {
+                    "name":"randommethod1",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod2",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod3",
+                    "returnType":"int"
+                }
             ],
-            "associations":[
-                "randomclass8","randomclass9","randomclass10","randomclass11"
-            ]
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
+        },
+        {
+            "name":"class5",
+            "attributes":[
+                {
+                    "name":"randomattr1",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr2",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr3",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr4",
+                    "type":"Double"
+                }
+            ],
+            "methods":[
+                {
+                    "name":"randommethod1",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod2",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod3",
+                    "returnType":"int"
+                }
+            ],
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
+        },
+        {
+            "name":"class6",
+            "attributes":[
+                {
+                    "name":"randomattr1",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr2",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr3",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr4",
+                    "type":"Double"
+                }
+            ],
+            "methods":[
+                {
+                    "name":"randommethod1",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod2",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod3",
+                    "returnType":"int"
+                }
+            ],
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
+        },
+        {
+            "name":"class7",
+            "attributes":[
+                {
+                    "name":"randomattr1",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr2",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr3",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr4",
+                    "type":"Double"
+                }
+            ],
+            "methods":[
+                {
+                    "name":"randommethod1",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod2",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod3",
+                    "returnType":"int"
+                }
+            ],
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
+        },
+        {
+            "name":"class8",
+            "attributes":[
+                {
+                    "name":"randomattr1",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr2",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr3",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr4",
+                    "type":"Double"
+                }
+            ],
+            "methods":[
+                {
+                    "name":"randommethod1",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod2",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod3",
+                    "returnType":"int"
+                }
+            ],
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
+        },
+        {
+            "name":"class9",
+            "attributes":[
+                {
+                    "name":"randomattr1",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr2",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr3",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr4",
+                    "type":"Double"
+                }
+            ],
+            "methods":[
+                {
+                    "name":"randommethod1",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod2",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod3",
+                    "returnType":"int"
+                }
+            ],
+            "subclasses":[""],
+            "components":[""],
+            "associations":[""]
         }
     ]
 }
