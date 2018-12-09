@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33098125999829256}
   - component: {fileID: 23500462019705232}
   - component: {fileID: 111470971122779702}
+  - component: {fileID: 114181997488224546}
   m_Layer: 0
   m_Name: methodDouble
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +130,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114181997488224546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417223972960358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a36e068da70753642bd7fde310315a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcText: 
 --- !u!198 &198739788376280422
 ParticleSystem:
   m_ObjectHideFlags: 1
