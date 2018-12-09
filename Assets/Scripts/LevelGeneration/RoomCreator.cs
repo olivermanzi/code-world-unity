@@ -6,7 +6,7 @@ namespace Project
 {
     public class RoomCreator : ScriptableObject
     {
-        private NPCCreator _npcCreator;
+        private ActorCreator _actorCreator;
         private Vector3 NextItemPosition
         {
             get
@@ -35,7 +35,7 @@ namespace Project
             _2doorCorridorEx = Resources.Load<GameObject>("Prefabs/Environment/2DoorCorridorExtension");
             _doorwayWall = Resources.Load<GameObject>("Prefabs/Environment/DoorwayWall");
             _wallEnding = Resources.Load<GameObject>("Prefabs/Environment/WallEnding");
-            _npcCreator = ScriptableObject.CreateInstance("NPCCreator") as NPCCreator;
+            _actorCreator = ScriptableObject.CreateInstance("ActorCreator") as ActorCreator;
             items = new List<GameObject>();
         }
 
@@ -47,7 +47,8 @@ namespace Project
             var room = GetRoom(classObject);
             var newRoom = InstantiateEnvironmentItem(room.RoomGO);
 
-            _npcCreator.CreateAttributes(room, newRoom);
+            _actorCreator.CreateAttributes(room, newRoom);
+            _actorCreator.CreateMethods(room, newRoom);
 
             newRoom.gameObject.name = room.Info.name;
             newRoom.AddComponent<RoomBehaviour>();

@@ -6,7 +6,7 @@ namespace Project{
     {
         public string name;
         public NPCObject[] attributes;
-        public Method[] methods;
+        public MethodObject[] methods;
         public string[] interfaces;
         public string[] subclasses;
         public string superclass;

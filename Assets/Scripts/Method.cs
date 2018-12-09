@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Project
 {
-	public class Method : MonoBehaviour {
+	public class Method : MonoBehaviour, IInteractable {
 
-			MethodObject npcInfo;
-			public string npcText;
+			MethodObject methodInfo;
+			public string methodText;
 			// Use this for initialization
 			void Start () {
 				//DEBUG STATEMENTS
-				//NPCObject testInfo = new NPCObject("integer", "ExampleName");
+				//methodObject testInfo = new.methodObject("integer", "ExampleName");
 				//Populate(testInfo);
 			}
 			
@@ -23,8 +23,8 @@ namespace Project
 			public void Interact()
 			{
 				Debug.Log("Interaction method run");
-				Debug.Log(this.npcText);
-				gameObject.transform.Find("Text").GetComponent<TextMesh>().text = this.npcText;
+				Debug.Log(this.methodText);
+				gameObject.transform.Find("Text").GetComponent<TextMesh>().text = this.methodText;
 				StartCoroutine(InteractionTimeout());
 			}
 
@@ -37,8 +37,8 @@ namespace Project
 			public void Populate(MethodObject info)
 			{
 				Debug.Log("Populated: " + info.ToString());
-				this.npcText = info.ToString();
-				Debug.Log("DoubleCheck: " + this.npcText);
+				this.methodText = info.ToString();
+				Debug.Log("DoubleCheck: " + this.methodText);
 			}
 	}
 }
