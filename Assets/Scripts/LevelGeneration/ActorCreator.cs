@@ -40,7 +40,7 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                        case ("Double"):
+                        case ("double"):
                             obj = Resources.Load("Prefabs/Actors/attributeDouble") as GameObject;
                             //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
                             Instantiate(obj, newRoom.transform, false);
@@ -53,7 +53,7 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                        case ("Float"):
+                        case ("float"):
                             obj = Resources.Load("Prefabs/Actors/attributeFloat") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -65,7 +65,7 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                        case ("Boolean"):
+                        case ("boolean"):
                             obj = Resources.Load("Prefabs/Actors/attributeBoolean") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -77,7 +77,7 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                        case ("Char"):
+                        case ("char"):
                             obj = Resources.Load("Prefabs/Actors/attributeChar") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -89,7 +89,7 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                        case ("Short"):
+                        case ("short"):
                             obj = Resources.Load("Prefabs/Actors/attributeInt") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -101,7 +101,7 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
-                        case ("Long"):
+                        case ("long"):
                             obj = Resources.Load("Prefabs/Actors/attributeInt") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -146,7 +146,7 @@ namespace Project{
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
-                        case ("Double"):
+                        case ("double"):
                             obj = Resources.Load("Prefabs/Actors/methodDouble") as GameObject;
                             //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z) , Quaternion.identity, newRoom.transform);
                             Instantiate(obj, newRoom.transform, false);
@@ -159,7 +159,7 @@ namespace Project{
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
-                        case ("Float"):
+                        case ("float"):
                             obj = Resources.Load("Prefabs/Actors/methodFloat") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -171,7 +171,7 @@ namespace Project{
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
-                        case ("Boolean"):
+                        case ("boolean"):
                             obj = Resources.Load("Prefabs/Actors/methodBoolean") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -183,7 +183,7 @@ namespace Project{
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
-                        case ("Char"):
+                        case ("char"):
                             obj = Resources.Load("Prefabs/Actors/methodChar") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -195,7 +195,7 @@ namespace Project{
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
-                        case ("Short"):
+                        case ("short"):
                             obj = Resources.Load("Prefabs/Actors/methodInt") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
@@ -207,7 +207,19 @@ namespace Project{
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
-                        case ("Long"):
+                        case ("long"):
+                            obj = Resources.Load("Prefabs/Actors/methodInt") as GameObject;
+                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while (!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;
+                            obj.GetComponent<Method>().Populate(method);
+                            break;
+
+                        case ("void"):
                             obj = Resources.Load("Prefabs/Actors/methodInt") as GameObject;
                             Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
