@@ -20,7 +20,7 @@ namespace Project
 
         private string _room;
         private Vector3 _nextItemPosition = new Vector3(0, 0, 0);
-        private Vector3 _offset = new Vector3(0, 0, 150);
+        private Vector3 _offset = new Vector3(0, 150, 150);
 
         //Game objects for building corridors
         private GameObject _corridor;
@@ -295,8 +295,9 @@ namespace Project
                 ending.transform.position = currentEndPoint.position;
             }
             //Attach connection names to Corridor
-            corr.GetComponent<Corridor>().Connections = connectionsList;
-
+            var corrBehaviour = corr.GetComponent<Corridor>();
+            corrBehaviour.Connections = connectionsList;
+            
             return corr;
         }
     }
