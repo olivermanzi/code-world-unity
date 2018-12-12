@@ -165,7 +165,6 @@ namespace Project
                             Debug.Log("No");
                             break;
                     }
-                    Debug.Log("Created objects: " + i++);
                 }
             }
         }
@@ -223,7 +222,6 @@ namespace Project
                     var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                     roomBH.ComponentsRoomTeleporter = portal;
                     portal.GetComponent<Portal>().receiver = roomBH.RightTeleporter;
-                    Debug.Log(roomBH.RightTeleporter);
                 }
 
             }
@@ -289,6 +287,7 @@ namespace Project
                     var extension = Instantiate(_2doorCorridorEx);
                     extension.transform.position = currentEndPoint.position + (extension.transform.position - extension.transform.Find("Startpoint").position);
                     currentEndPoint = extension.transform.Find("Endpoint");
+                    extension.transform.parent = corr.transform;
                     connections -= 2;
                 }
                 var ending = connections == 1 ? Instantiate(_doorwayWall) : Instantiate(_wallEnding);

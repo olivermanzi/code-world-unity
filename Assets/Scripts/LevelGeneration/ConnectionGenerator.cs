@@ -12,6 +12,8 @@ namespace Project{
                 //Check if item is corridor
                 if (item != null)
                 {
+
+                    item.SetupConnections();
                     //TODO Connect its doors to the associations specified in their attached script
                 }
             });

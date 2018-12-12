@@ -26,7 +26,6 @@ namespace Project{
             int i = 1;
             foreach (var c in classes)
             {
-               Debug.Log("Room: " + i++);
                _gameObjectCreator.Compose(c);
             }
 
