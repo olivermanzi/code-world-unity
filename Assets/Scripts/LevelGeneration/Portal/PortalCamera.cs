@@ -51,7 +51,10 @@ public class PortalCamera : MonoBehaviour
         cam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         mat = new Material(shader);
         mat.mainTexture = cam.targetTexture;
-        _otherPortal.GetComponent<MeshRenderer>().material = mat;
+		if(_otherPortal != null)
+		{
+			_otherPortal.GetComponent<MeshRenderer>().material = mat;
+		}
     }
 
 
