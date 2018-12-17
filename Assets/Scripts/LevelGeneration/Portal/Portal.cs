@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour {
 	private Transform player;
 	private Transform attachedCamera;
 	private bool isOverlapping = false;
+	private float _teleportTimer = 0.0f;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class Portal : MonoBehaviour {
     // Update is called once per frame
     void Update () 
 	{
-        if (isOverlapping == true && receiver != null)
+        if (isOverlapping == true && receiver != null )
         {
 			TeleportPlayer ();
 			isOverlapping = false;
@@ -43,6 +44,7 @@ public class Portal : MonoBehaviour {
 		if (dotProduct < 1f) {
 			player.transform.rotation = destination.rotation;
 			player.transform.position = destination.position;
+			Debug.Log("Rotation: " + destination.rotation);
 			 
 			//Set portalCamera to focus on door entered
 			var cam = attachedCamera.GetComponent<PortalCamera>();
