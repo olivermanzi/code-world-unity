@@ -21,7 +21,9 @@ GameObject:
   - component: {fileID: 4818112050799594}
   - component: {fileID: 111833230587804534}
   - component: {fileID: 114880485894803166}
-  - component: {fileID: 136195406163658190}
+  - component: {fileID: 136259882365254076}
+  - component: {fileID: 136878877712641572}
+  - component: {fileID: 65309967283664250}
   m_Layer: 0
   m_Name: methodString
   m_TagString: Interactable
@@ -160,13 +162,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702681444335042}
-  m_LocalRotation: {x: -0.000000021855694, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.60876137, y: 0, z: 0, w: 0.7933534}
   m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4136373965350230}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
 --- !u!4 &4591915931445302
 Transform:
   m_ObjectHideFlags: 1
@@ -187,8 +189,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1138378466208842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 752.8948, y: 752.8151, z: 1105.276}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: -76, y: 0, z: -3}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4087339816079992}
   - {fileID: 4003074422462192}
@@ -356,6 +358,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317641403801252}
   m_Mesh: {fileID: 4300002, guid: 67dc04eafc9ff5047a172f6abe1deb8b, type: 3}
+--- !u!65 &65309967283664250
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1138378466208842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31, y: 1.07, z: 1.45}
+  m_Center: {x: -0.02, y: 1.2, z: 2.73}
 --- !u!102 &102549490889179474
 TextMesh:
   serializedVersion: 3
@@ -389,7 +403,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 2d7c35f8694c61145a2faee7c0107b84, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &114880485894803166
@@ -403,8 +417,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36e068da70753642bd7fde310315a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  methodText: 
---- !u!136 &136195406163658190
+  methodText: 'Name: randommethod10
+
+    returnType: String
+
+'
+--- !u!136 &136259882365254076
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1138378466208842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.55
+  m_Height: 2.03
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136878877712641572
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -414,6 +445,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 4.75
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.85, z: 0}
+  m_Height: 4.01
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.39, z: 1.69}

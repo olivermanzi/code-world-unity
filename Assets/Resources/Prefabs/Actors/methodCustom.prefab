@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142871857694114}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 740.7064, y: 758.784, z: 1123.2931}
+  m_LocalPosition: {x: -56, y: 0, z: 37}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4538973940129864}
@@ -341,8 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36e068da70753642bd7fde310315a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  methodText: 'Name: randommethod10
+  methodText: 'Name: randommethod8
 
-    returnType: String
+    returnType: DAB
 
 '

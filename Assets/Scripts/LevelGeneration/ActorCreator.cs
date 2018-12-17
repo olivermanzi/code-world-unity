@@ -37,6 +37,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
@@ -50,6 +51,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
@@ -64,6 +66,7 @@ namespace Project{
                             }
                             position = new Vector3(position.x, position.y+10, position.z);  
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
@@ -77,6 +80,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
@@ -90,6 +94,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
@@ -103,6 +108,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
@@ -116,6 +122,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
@@ -129,6 +136,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
                     }
@@ -158,6 +166,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -171,6 +180,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -184,6 +194,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -197,6 +208,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -210,6 +222,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -223,6 +236,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -236,6 +250,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -248,7 +263,23 @@ namespace Project{
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
+                            position = new Vector3(position.x, position.y+2.65f, position.z);  
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
+                            obj.GetComponent<Method>().Populate(method);
+                            break;
+
+                        case ("String"):
+                            obj = Resources.Load("Prefabs/Actors/methodString") as GameObject;
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while (!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
 
@@ -262,6 +293,7 @@ namespace Project{
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
                             obj.transform.localPosition = position;
+                            obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
                             break;
                     }
@@ -272,13 +304,21 @@ namespace Project{
 
 		private bool checkIfPosEmpty(Vector3 pos)
         {
-            GameObject[] interactables = GameObject.FindGameObjectsWithTag("Interactable");
+           /*  GameObject[] interactables = GameObject.FindGameObjectsWithTag("Interactable");
             foreach (GameObject current in interactables)
             {
                 if (current.transform.position == pos)
                     return false;
+            }*/
+            Collider[] colliders = Physics.OverlapSphere(pos, 4);
+            if(colliders.Length > 0)
+            {
+                return false;
             }
-            return true;
+            else
+            {
+                return true;
+            }
         }
 	}
 }
