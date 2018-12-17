@@ -55,19 +55,22 @@ namespace Project{
 
                         case ("float"):
                             obj = Resources.Load("Prefabs/Actors/attributeFloat") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
+                            position = new Vector3(position.x, position.y+10, position.z);  
                             obj.transform.localPosition = position;
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
 
                         case ("boolean"):
                             obj = Resources.Load("Prefabs/Actors/attributeBoolean") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -79,7 +82,8 @@ namespace Project{
 
                         case ("char"):
                             obj = Resources.Load("Prefabs/Actors/attributeChar") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -91,7 +95,8 @@ namespace Project{
 
                         case ("short"):
                             obj = Resources.Load("Prefabs/Actors/attributeShort") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -103,7 +108,8 @@ namespace Project{
 
                         case ("long"):
                             obj = Resources.Load("Prefabs/Actors/attributeLong") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -115,7 +121,8 @@ namespace Project{
 
                         default:
                             obj = Resources.Load("Prefabs/Actors/attributeCustom") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -169,7 +176,8 @@ namespace Project{
 
                         case ("float"):
                             obj = Resources.Load("Prefabs/Actors/methodFloat") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -181,7 +189,8 @@ namespace Project{
 
                         case ("boolean"):
                             obj = Resources.Load("Prefabs/Actors/methodBoolean") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -193,7 +202,8 @@ namespace Project{
 
                         case ("char"):
                             obj = Resources.Load("Prefabs/Actors/methodChar") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -204,8 +214,9 @@ namespace Project{
                             break;
 
                         case ("short"):
-                            obj = Resources.Load("Prefabs/Actors/methodInt") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            obj = Resources.Load("Prefabs/Actors/methodShort") as GameObject;
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -216,8 +227,9 @@ namespace Project{
                             break;
 
                         case ("long"):
-                            obj = Resources.Load("Prefabs/Actors/methodInt") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            obj = Resources.Load("Prefabs/Actors/methodLong") as GameObject;
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -228,8 +240,9 @@ namespace Project{
                             break;
 
                         case ("void"):
-                            obj = Resources.Load("Prefabs/Actors/methodInt") as GameObject;
-                            Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            obj = Resources.Load("Prefabs/Actors/methodVoid") as GameObject;
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
                             position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             while (!checkIfPosEmpty(position))
                             {
@@ -240,7 +253,16 @@ namespace Project{
                             break;
 
                         default:
-                            Debug.Log("No");
+                            obj = Resources.Load("Prefabs/Actors/methodCustom") as GameObject;
+                            //Instantiate(obj, new Vector3(newRoom.transform.position.x, newRoom.transform.position.y, newRoom.transform.position.z), Quaternion.identity, newRoom.transform);
+                            Instantiate(obj, newRoom.transform, false);
+                            position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            while (!checkIfPosEmpty(position))
+                            {
+                                position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
+                            }
+                            obj.transform.localPosition = position;
+                            obj.GetComponent<Method>().Populate(method);
                             break;
                     }
                     Debug.Log("Created objects: " + i++);

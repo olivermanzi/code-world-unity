@@ -1,8 +1,97 @@
 {
     "data":
     [
-        {
+		{
             "name":"randomclass1",
+            "attributes":[
+                {
+                    "name":"randomattr1",
+                    "type":"int"
+                },
+                {
+                    "name":"randomattr2",
+                    "type":"double"
+                },
+                {
+                    "name":"randomattr3",
+                    "type":"float"
+                },
+                {
+                    "name":"randomattr4",
+                    "type":"boolean"
+                },
+				{
+                    "name":"randomattr5",
+                    "type":"char"
+                },
+				{
+                    "name":"randomattr6",
+                    "type":"short"
+                },
+				{
+                    "name":"randomattr7",
+                    "type":"long"
+                },
+				{
+                    "name":"randomattr8",
+                    "type":"DAB"
+                }
+            ],
+            "methods":[
+                {
+                    "name":"randommethod1",
+                    "returnType":"int"
+                },
+                {
+                    "name":"randommethod2",
+                    "returnType":"double"
+                },
+                {
+                    "name":"randommethod3",
+                    "returnType":"float"
+                },
+                {
+                    "name":"randommethod4",
+                    "returnType":"boolean"
+                },
+				{
+                    "name":"randommethod5",
+                    "returnType":"char"
+                },
+				{
+                    "name":"randommethod6",
+                    "returnType":"short"
+                },
+				{
+                    "name":"randommethod7",
+                    "returnType":"long"
+                },
+				{
+                    "name":"randommethod8",
+                    "returnType":"DAB"
+                },
+				{
+                    "name":"randommethod9",
+                    "returnType":"void"
+                },
+				{
+                    "name":"randommethod10",
+                    "returnType":"String"
+                }
+            ],
+            "subclasses":[
+                "randomclass21"
+            ],
+            "components":[
+                "randomclass5"
+            ],
+            "associations":[
+                "randomclass8","randomclass9","randomclass10","randomclass11"
+            ]
+        },
+		
+        {
+            "name":"randomclass2",
             "attributes":[
                 {
                     "name":"randomattr1",
@@ -46,50 +135,6 @@
             ]
         },
         {
-            "name":"randomclass2",
-            "attributes":[
-                {
-                    "name":"randomattr1",
-                    "type":"int"
-                },
-                {
-                    "name":"randomattr2",
-                    "type":"int"
-                },
-                {
-                    "name":"randomattr3",
-                    "type":"int"
-                },
-                {
-                    "name":"randomattr4",
-                    "type":"Double"
-                }
-            ],
-            "methods":[
-                {
-                    "name":"randommethod1",
-                    "returnType":"int"
-                },
-                {
-                    "name":"randommethod2",
-                    "returnType":"int"
-                },
-                {
-                    "name":"randommethod3",
-                    "returnType":"int"
-                }
-            ],
-            "subclasses":[
-                "randomclass69"
-            ],
-            "components":[
-                "randomclass5"
-            ],
-            "associations":[
-                "randomclass8","randomclass9","randomclass10","randomclass11"
-            ]
-        },
-        {
             "name":"randomclass3",
             "attributes":[
                 {
@@ -124,7 +169,7 @@
                 }
             ],
             "subclasses":[
-                "randomclass21"
+                "randomclass69"
             ],
             "components":[
                 "randomclass5"

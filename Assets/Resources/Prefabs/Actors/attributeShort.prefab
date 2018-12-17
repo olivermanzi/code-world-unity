@@ -247,9 +247,10 @@ GameObject:
   - component: {fileID: 4000010692086626}
   - component: {fileID: 95000014196578838}
   - component: {fileID: 136541169718285004}
+  - component: {fileID: 114071842744719348}
   m_Layer: 0
   m_Name: attributeShort
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,8 +321,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012979649092}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.13, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: -17, y: 0, z: 3}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children:
   - {fileID: 4000012307416282}
   - {fileID: 4000013489688912}
@@ -611,6 +612,22 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114071842744719348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012979649092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca264b29aba1aff4f926b4a3a16dfc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcText: 'Name: randomattr6
+
+    Type: short
+
+'
 --- !u!136 &136541169718285004
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -352,9 +352,10 @@ GameObject:
   - component: {fileID: 4000014191901042}
   - component: {fileID: 95000013350495782}
   - component: {fileID: 135126585120860842}
+  - component: {fileID: 114172509269364348}
   m_Layer: 0
   m_Name: attributeLong
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -718,8 +719,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014069041812}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.02, y: 0.89, z: 2.26}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: 760.1329, y: 764.7751, z: 1097.322}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children:
   - {fileID: 4000010945859010}
   - {fileID: 4000012571834488}
@@ -814,6 +815,22 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &114172509269364348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014069041812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca264b29aba1aff4f926b4a3a16dfc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcText: 'Name: randomattr7
+
+    Type: long
+
+'
 --- !u!135 &135126585120860842
 SphereCollider:
   m_ObjectHideFlags: 1
