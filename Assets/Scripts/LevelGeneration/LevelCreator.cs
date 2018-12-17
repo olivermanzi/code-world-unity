@@ -23,11 +23,7 @@ namespace Project{
         {
             string json = _streamReader.ReadToEnd();
             ClassObject[] classes = _jsonParser.Parse<ClassObject>(json);
-            int i = 1;
-           
             _gameObjectCreator.Compose(classes);
-
-            Debug.Log(_jsonParser.ToJson<ClassObject>(classes)); // DEV only
         }
     }
 }
