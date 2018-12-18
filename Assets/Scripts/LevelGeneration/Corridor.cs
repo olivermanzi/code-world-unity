@@ -15,23 +15,21 @@ public class Corridor : MonoBehaviour {
         InitializeDoors();
         foreach (var item in Connections)
         {
-            Transform destination = FindDestination(item);
-            Connect(GetNextEmptyDoor(), destination);
+            Connect(GetNextEmptyDoor(), item);
         }
-    }
-
-    private Transform FindDestination(string item)
-    {
-        return GameObject.Find(item).GetComponent<RoomBehaviour>().BackTeleporter.transform;
     }
 
     private void InitializeDoors()
     {
+        _doors = new List<GameObject>();
         var portals = transform.GetComponentsInChildren<Portal>();
         foreach (var item in portals)
         {
-            GameObject gate = item.gameObject.transform.parent.gameObject;
-            _doors.Add(gate);
+            if(item.receiver == null)
+            {
+                GameObject gate = item.transform.parent.gameObject;
+                _doors.Add(gate);
+            }
         }
     }
 
@@ -42,8 +40,11 @@ public class Corridor : MonoBehaviour {
         return door;
     }
 
-    private void Connect(GameObject door, Transform destination)
+    private void Connect(GameObject door, string name)
     {
-        door.GetComponentInChildren<Portal>().receiver = destination;
+        Transform destination = GameObject.Find(name).transform;
+        door.GetComponentInChildren<Portal>().receiver = destination.GetComponent<RoomBehaviour>().BackTeleporter.transform;
+        door.GetComponentInChildren<Portal>().destination = name;
+        destination.Find("PortalCamera").GetComponent<PortalCamera>().OtherPortal = door.transform.Find("Portal").GetComponent<MeshRenderer>().transform;
     }
 }
