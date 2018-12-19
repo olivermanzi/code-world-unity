@@ -19,7 +19,7 @@ namespace Project
 
         private string _room;
         private Vector3 _nextItemPosition = new Vector3(0, 0, 0);
-        private Vector3 _offset = new Vector3(0, 0, 150);
+        private Vector3 _offset = new Vector3(0, 150, 150);
 
         //Game objects for building corridors
         private GameObject _corridor;
@@ -60,11 +60,8 @@ namespace Project
         //Determine room prefab
         private Room GetRoom(ClassObject classObject)
         {
-            int rels = GameObjectCreator.CountRels(classObject);
-
             //Path to prefab file
-            string _room = "Prefabs/Environment/" + (rels > 4 ? 4 : rels) + "DoorRoom";
-
+            string _room = "Prefabs/Environment/4DoorRoom";
             return new Room(classObject, Resources.Load<GameObject>(_room));
         }
 
@@ -110,7 +107,6 @@ namespace Project
                     var portal = corridor.transform.GetChild(i).Find("Doorway/PortalTeleporter");
                     roomBH.ComponentsRoomTeleporter = portal;
                     portal.GetComponent<Portal>().receiver = roomBH.RightTeleporter;
-                    Debug.Log(roomBH.RightTeleporter);
                 }
 
             }
@@ -149,7 +145,7 @@ namespace Project
         {
             var newGameObject = Instantiate(go);
             newGameObject.transform.position = NextItemPosition;
-            items.Add(newGameObject); //what is this for? i dont remember
+            items.Add(newGameObject);
             return newGameObject;
         }
 
@@ -176,12 +172,17 @@ namespace Project
                     var extension = Instantiate(_2doorCorridorEx);
                     extension.transform.position = currentEndPoint.position + (extension.transform.position - extension.transform.Find("Startpoint").position);
                     currentEndPoint = extension.transform.Find("Endpoint");
+                    extension.transform.parent = corr.transform;
                     connections -= 2;
                 }
                 var ending = connections == 1 ? Instantiate(_doorwayWall) : Instantiate(_wallEnding);
                 ending.transform.position = currentEndPoint.position;
+                ending.transform.parent = corr.transform;
             }
-
+            //Attach connection names to Corridor
+            var corrBehaviour = corr.GetComponent<Corridor>();
+            corrBehaviour.ConnectionNames = connectionsList;
+            
             return corr;
         }
     }

@@ -5,9 +5,11 @@ using UnityEngine;
 public class Portal : MonoBehaviour {
 
     public Transform receiver;
+    public string destination;
 
 	private Transform player;
 	private Transform attachedCamera;
+    private PortalCameraManager portalCameraManager;
 	private bool isOverlapping = false;
 	private float _teleportTimer = 0.0f;
 
@@ -15,6 +17,7 @@ public class Portal : MonoBehaviour {
     {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		attachedCamera = transform.parent.parent.parent.Find("PortalCamera").transform;
+        portalCameraManager = GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>();
     }
 
     // Update is called once per frame
@@ -51,8 +54,8 @@ public class Portal : MonoBehaviour {
 			cam.portal = transform.parent.Find("Portal").transform;
 			cam.OtherPortal = receiver.parent.Find("Portal").transform;
 
-			//Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards
-			transform.parent.parent.parent.GetComponent<RoomBehaviour>().SetObserverCamera(attachedCamera);
+            //Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards
+            portalCameraManager.CycleCameras();
 		}
 	}
 }

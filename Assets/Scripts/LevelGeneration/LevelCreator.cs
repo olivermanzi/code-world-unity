@@ -23,14 +23,8 @@ namespace Project{
         {
             string json = _streamReader.ReadToEnd();
             ClassObject[] classes = _jsonParser.Parse<ClassObject>(json);
-            int i = 1;
-            foreach (var c in classes)
-            {
-               Debug.Log("Room: " + i++);
-               _gameObjectCreator.Compose(c);
-            }
-
-            Debug.Log(_jsonParser.ToJson<ClassObject>(classes)); // DEV only
+            _gameObjectCreator.Compose(classes);
+            GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>().CycleCameras();
         }
     }
 }

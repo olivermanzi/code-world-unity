@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class RoomBehaviour : MonoBehaviour
 {
-    public List<Transform> subrooms;
+    public List<GameObject> subrooms;
     private Transform _componentsRoomTeleporter;
     private Transform _associationsRoomTeleporter;
     private Transform _inheritenceRoomTeleporter;
@@ -128,7 +128,7 @@ public class RoomBehaviour : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        subrooms = new List<Transform>();
+        subrooms = new List<GameObject>();
 
         for (var i = 0; i < transform.childCount; i++)
         {
@@ -166,17 +166,16 @@ public class RoomBehaviour : MonoBehaviour
 	public void SetObserverCamera(Transform newCamera)
 	{
 		foreach (var room in subrooms) {
-
-			room.Find ("PortalCamera").GetComponent<PortalCamera> ().playerCamera = newCamera;
+			room.transform.Find ("PortalCamera").GetComponent<PortalCamera> ().playerCamera = newCamera;
 		}
 	}
 
 	private void UpdateSubRooms()
 	{
-		subrooms = new List<Transform>();
-		if(AssociationsRoomTeleporter != null) subrooms.Add (AssociationsRoomTeleporter.parent.parent.parent);
-		if(ComponentsRoomTeleporter != null) subrooms.Add (ComponentsRoomTeleporter.parent.parent.parent);
-		if(InheritenceRoomTeleporter != null) subrooms.Add (InheritenceRoomTeleporter.parent.parent.parent);
-		if(PreviousRoomTeleporter != null) subrooms.Add (PreviousRoomTeleporter.parent.parent.parent);
+		subrooms = new List<GameObject>();
+		if(AssociationsRoomTeleporter != null) subrooms.Add (AssociationsRoomTeleporter.parent.parent.parent.gameObject);
+		if(ComponentsRoomTeleporter != null) subrooms.Add (ComponentsRoomTeleporter.parent.parent.parent.gameObject);
+		if(InheritenceRoomTeleporter != null) subrooms.Add (InheritenceRoomTeleporter.parent.parent.parent.gameObject);
+		if(PreviousRoomTeleporter != null) subrooms.Add (PreviousRoomTeleporter.parent.parent.parent.gameObject);
 	}
 }
