@@ -719,8 +719,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014069041812}
-  m_LocalRotation: {x: 0, y: 0.56640625, z: 0, w: 0.8241262}
-  m_LocalPosition: {x: -44, y: 0, z: 10}
+  m_LocalRotation: {x: 0, y: 0.15643448, z: 0, w: 0.98768836}
+  m_LocalPosition: {x: -80, y: 0, z: -23}
   m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children:
   - {fileID: 4000010945859010}
@@ -802,7 +802,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537370490262918}
-  m_Text: AFGASUIFGAHSUFA
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 0.25
   m_LineSpacing: 1
