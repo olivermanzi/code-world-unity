@@ -382,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4590730627486772}
   m_Layer: 0
-  m_Name: randomclass3
+  m_Name: 4DoorRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -819,7 +819,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614925341449342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 90.74821, y: 304.72775, z: 322.43225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4318081414337566}
@@ -2263,7 +2263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
-  portal: {fileID: 0}
+  portal: {fileID: 4383848530377702}
+  otherPortals: []
 --- !u!114 &114141406801024680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2276,6 +2277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
+  destination: 
 --- !u!114 &114277677380980314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2288,6 +2290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
+  destination: 
 --- !u!114 &114669078185679392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2300,6 +2303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
+  destination: 
 --- !u!114 &114880446758937268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2312,6 +2316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
+  destination: 
 --- !u!124 &124474012208288922
 Behaviour:
   m_ObjectHideFlags: 1
