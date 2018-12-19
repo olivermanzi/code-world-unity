@@ -11,9 +11,12 @@ namespace Project
 {
     public class MiddlewareInterface : MonoBehaviour {
 
-        // gloabl Text Variable as unity doesnt allow functions called in 
+        // The global variables are here as unity doesnt allow functions called in 
         // the UnityEngine to have more than one parameter
         Text project;
+        Boolean GitLab = true;
+        Boolean GitHub = false;
+
         // Use this for initialization
         void Start () {
     
@@ -27,7 +30,40 @@ namespace Project
             project = name;
             UnityEngine.Debug.Log("Middleware: SetProj run!");
         }
+
+        //These are setter for the GitLab and GitHub variables
+        public void SetGitLab(Boolean repo)
+        {
+            GitLab = repo;
+        }
+
+        public void SetGitHub(Boolean repo)
+        {
+            GitHub = repo;
+        }
         
+        // This functions checks and returns which of the Repo pages should be passed as a argument
+        // Standard it will select GitLab
+        public String checkRepo()
+        {
+            
+            if(GitHub == true && GitLab == false)
+            {
+                return "f";
+            }else if(GitHub == false && GitLab == true)
+            {
+                return "t";
+            }
+            else
+            {
+                return "t";
+            }
+
+       }
+
+
+
+
         // This function is the first chain in the process to get the neccesarry JSON to the computer
         public void GetJson (Text name) {
             UnityEngine.Debug.Log("Middleware: GetJson run!");
@@ -35,6 +71,7 @@ namespace Project
             string NodePath = UnityEngine.Application.dataPath + "/Resources/Middleware/ConsoleApplication.exe";
             var User = name.text.ToString();
             var Repository = project.text.ToString();
+            var Page = checkRepo();
             
             // Making a Proccess that will call on a file and also pass along arguments to that file.
             Process FirstNode = new Process();
@@ -45,7 +82,7 @@ namespace Project
                 FirstNode.StartInfo.FileName = NodePath;
                 UnityEngine.Debug.Log(NodePath);
                 // Declares the argument the .exe file will take 
-                FirstNode.StartInfo.Arguments = User +" "+ Repository;
+                FirstNode.StartInfo.Arguments = User +" "+ Repository+" "+Page;
                 FirstNode.Start();
                 FirstNode.WaitForExit();
                 SceneManager.LoadScene("Main", LoadSceneMode.Single);
