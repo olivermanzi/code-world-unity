@@ -321,8 +321,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012979649092}
-  m_LocalRotation: {x: 0, y: 0.7933533, z: 0, w: -0.6087614}
-  m_LocalPosition: {x: -56, y: 0, z: 2}
+  m_LocalRotation: {x: 0, y: 0.09584583, z: 0, w: -0.9953962}
+  m_LocalPosition: {x: -20, y: 0, z: 34}
   m_LocalScale: {x: 200, y: 200, z: 200}
   m_Children:
   - {fileID: 4000012307416282}
@@ -599,7 +599,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1293850383393064}
-  m_Text: SAJFKBASK
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 0.25
   m_LineSpacing: 1
