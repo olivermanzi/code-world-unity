@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,7 +46,7 @@ public class Portal : MonoBehaviour {
 		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
 		//If Player entered portal through front
 		if (dotProduct < 1f) {
-			player.transform.rotation = destination.rotation;
+			player.transform.Rotate(0,TranslateRotation(player),0,Space.World);
 			player.transform.position = destination.position;
 			Debug.Log("Rotation: " + destination.rotation);
 			 
@@ -58,4 +59,22 @@ public class Portal : MonoBehaviour {
             portalCameraManager.CycleCameras();
 		}
 	}
+
+    private float TranslateRotation(Transform player)
+    {
+		int rotation = (int) transform.parent.parent.rotation.y;
+		int res = 0;
+		switch(rotation){
+			case 90:
+				res=90;
+				break;
+			case 180:
+
+				break;
+			case 270:
+				res=-90;
+				break;
+		}
+		return player.rotation.y + res;
+    }
 }
