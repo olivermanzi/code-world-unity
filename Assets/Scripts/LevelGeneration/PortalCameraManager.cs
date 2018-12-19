@@ -37,6 +37,11 @@ public class PortalCameraManager : MonoBehaviour {
             foreach (var indirectCon in indirectConnections)
             {
                 SetObserverCamera(indirectCon, directCon.transform.Find("PortalCamera"));
+                GameObject[] inindirectConnections = GetConnections(indirectCon.transform);
+                foreach (var inindirectCon in indirectConnections)
+                {
+                    SetObserverCamera(inindirectCon, indirectCon.transform.Find("PortalCamera"));
+                }
             }
         }
     }
@@ -61,6 +66,7 @@ public class PortalCameraManager : MonoBehaviour {
     {
         var camera = location.transform.Find("PortalCamera").GetComponent<PortalCamera>();
         camera.playerCamera = newCamera;
+        camera.gameObject.SetActive(true);
         foreach (var item in camera.otherPortals)
         {
             foreach (var mr in location.transform.GetComponentsInChildren<MeshRenderer>())
@@ -68,9 +74,9 @@ public class PortalCameraManager : MonoBehaviour {
                 if (item.Equals(mr))
                 {
                     camera.OtherPortal = mr.transform;
+                    return;
                 }
             }
         }
-        camera.gameObject.SetActive(true);
     }
 }
