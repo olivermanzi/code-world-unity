@@ -292,10 +292,11 @@ namespace Project
                 }
                 var ending = connections == 1 ? Instantiate(_doorwayWall) : Instantiate(_wallEnding);
                 ending.transform.position = currentEndPoint.position;
+                ending.transform.parent = corr.transform;
             }
             //Attach connection names to Corridor
             var corrBehaviour = corr.GetComponent<Corridor>();
-            corrBehaviour.Connections = connectionsList;
+            corrBehaviour.ConnectionNames = connectionsList;
             
             return corr;
         }
