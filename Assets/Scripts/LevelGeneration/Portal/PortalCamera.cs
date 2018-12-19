@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class PortalCamera : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class PortalCamera : MonoBehaviour
 			_otherPortal = value;
 			if(_otherPortal != null)
 			{
+                if (!otherPortals.Contains(_otherPortal))
+                {
+                    otherPortals.Add(_otherPortal);
+                }
 				_otherPortal.GetComponent<MeshRenderer>().material = mat;
 			}
 		}
@@ -24,10 +29,12 @@ public class PortalCamera : MonoBehaviour
     private Material mat;
     private Camera cam;
 
+    public List<Transform> otherPortals;
+
     private void Awake()
     {
         cam= gameObject.GetComponent<Camera>();
-     
+        otherPortals = new List<Transform>();
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
         if (cam.targetTexture != null)
@@ -51,7 +58,10 @@ public class PortalCamera : MonoBehaviour
         cam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         mat = new Material(shader);
         mat.mainTexture = cam.targetTexture;
-        _otherPortal.GetComponent<MeshRenderer>().material = mat;
+        if(_otherPortal != null)
+        {
+            _otherPortal.GetComponent<MeshRenderer>().material = mat;
+        }
     }
 
 

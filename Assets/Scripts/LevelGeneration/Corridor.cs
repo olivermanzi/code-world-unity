@@ -6,14 +6,16 @@ using UnityEngine;
 public class Corridor : MonoBehaviour {
 
     public string IsExtensionOf { get; set; }
-    public string[] Connections { get; set; }
+    public string[] ConnectionNames { get; set; }
 
+    public List<GameObject> Connections;
     private List<GameObject> _doors;
 
     public void SetupConnections()
     {
+        Connections = new List<GameObject>();
         InitializeDoors();
-        foreach (var item in Connections)
+        foreach (var item in ConnectionNames)
         {
             Connect(GetNextEmptyDoor(), item);
         }
@@ -42,9 +44,14 @@ public class Corridor : MonoBehaviour {
 
     private void Connect(GameObject door, string name)
     {
-        Transform destination = GameObject.Find(name).transform;
-        door.GetComponentInChildren<Portal>().receiver = destination.GetComponent<RoomBehaviour>().BackTeleporter.transform;
-        door.GetComponentInChildren<Portal>().destination = name;
-        destination.Find("PortalCamera").GetComponent<PortalCamera>().OtherPortal = door.transform.Find("Portal").GetComponent<MeshRenderer>().transform;
+        var target = GameObject.Find(name);
+        if (target != null)
+        {
+            Transform destination = target.transform;
+            door.GetComponentInChildren<Portal>().receiver = destination.GetComponent<RoomBehaviour>().BackTeleporter.transform;
+            door.GetComponentInChildren<Portal>().destination = name;
+            destination.Find("PortalCamera").GetComponent<PortalCamera>().OtherPortal = door.transform.Find("Portal").GetComponent<MeshRenderer>().transform;
+            Connections.Add(target);
+        }
     }
 }

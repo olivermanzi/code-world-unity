@@ -24,6 +24,7 @@ namespace Project{
             string json = _streamReader.ReadToEnd();
             ClassObject[] classes = _jsonParser.Parse<ClassObject>(json);
             _gameObjectCreator.Compose(classes);
+            GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>().CycleCameras();
         }
     }
 }

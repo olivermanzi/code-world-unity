@@ -6,11 +6,14 @@ namespace Project{
     {
         private RoomCreator _roomCreator;
         private ConnectionGenerator _connectionGenerator;
+        private PortalCameraManager _portalCameraManager;
+
 
         public void OnEnable()
         {
             _roomCreator = CreateInstance("RoomCreator") as RoomCreator;
             _connectionGenerator = CreateInstance("ConnectionGenerator") as ConnectionGenerator;
+            _portalCameraManager = FindObjectOfType<PortalCameraManager>();
         }
 
         public void Compose (ClassObject[] classes)
@@ -19,6 +22,7 @@ namespace Project{
             foreach (var c in classes)
             {
                items = _roomCreator.CreateRoomAndExtensions(c);
+               _portalCameraManager.environmentObjects = items.ToArray();
             }
             if (items != null)
             {
