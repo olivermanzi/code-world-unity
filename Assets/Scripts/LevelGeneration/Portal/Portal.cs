@@ -8,7 +8,7 @@ public class Portal : MonoBehaviour {
     public Transform receiver;
     public string destination;
 
-	private Transform player;
+	private GameObject player;
 	private Transform attachedCamera;
     private PortalCameraManager portalCameraManager;
 	private bool isOverlapping = false;
@@ -16,7 +16,7 @@ public class Portal : MonoBehaviour {
 
     private void Start()
     {
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		player = GameObject.FindGameObjectWithTag("Player");
 		attachedCamera = transform.parent.parent.parent.Find("PortalCamera").transform;
         portalCameraManager = GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>();
     }
@@ -42,11 +42,13 @@ public class Portal : MonoBehaviour {
 	private void TeleportPlayer()
 	{
 		var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
-		Vector3 portalToPlayer = player.position - transform.position;
+		Vector3 portalToPlayer = player.transform.position - transform.position;
 		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
 		//If Player entered portal through front
 		if (dotProduct < 1f) {
-			player.transform.Rotate(0,TranslateRotation(player),0,Space.World);
+			//player.transform.Rotate(0,TranslateRotation(player),0,Space.World);
+			player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().ForceRotation(Quaternion.Euler(0, 90, 0));
+
 			player.transform.position = destination.position;
 			Debug.Log("Rotation: " + destination.rotation);
 			 
@@ -60,9 +62,10 @@ public class Portal : MonoBehaviour {
 		}
 	}
 
-    private float TranslateRotation(Transform player)
+/*  private float TranslateRotation(Transform player)
     {
 		int rotation = (int) transform.parent.parent.rotation.y;
+		Debug.Log("Portal.cs - Rotation: " + rotation);
 		int res = 0;
 		switch(rotation){
 			case 90:
@@ -76,5 +79,9 @@ public class Portal : MonoBehaviour {
 				break;
 		}
 		return player.rotation.y + res;
-    }
+    }*/
+
+	private void TranslateRotation(Transform player)
+	{
+	}
 }

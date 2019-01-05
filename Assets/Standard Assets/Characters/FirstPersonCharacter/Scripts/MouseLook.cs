@@ -27,6 +27,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_CameraTargetRot = camera.localRotation;
         }
 
+        public void ForceRotation(Quaternion rot)
+        {
+            m_CameraTargetRot = rot; 
+        }
 
         public void LookRotation(Transform character, Transform camera)
         {

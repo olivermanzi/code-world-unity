@@ -43,6 +43,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
         // Use this for initialization
+
+        public void ForceRotation (Quaternion rot)
+        {
+            m_MouseLook.ForceRotation(rot);
+        }
+        
         private void Start()
         {
 			Transform[] ParentCam = GetComponentsInChildren<Transform>();
