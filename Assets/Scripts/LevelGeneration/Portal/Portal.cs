@@ -61,27 +61,4 @@ public class Portal : MonoBehaviour {
             portalCameraManager.CycleCameras();
 		}
 	}
-
-/*  private float TranslateRotation(Transform player)
-    {
-		int rotation = (int) transform.parent.parent.rotation.y;
-		Debug.Log("Portal.cs - Rotation: " + rotation);
-		int res = 0;
-		switch(rotation){
-			case 90:
-				res=90;
-				break;
-			case 180:
-
-				break;
-			case 270:
-				res=-90;
-				break;
-		}
-		return player.rotation.y + res;
-    }*/
-
-	private void TranslateRotation(Transform player)
-	{
-	}
 }
