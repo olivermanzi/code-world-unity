@@ -38,7 +38,6 @@ namespace Project
 			{
 				Debug.Log("Populated: " + info.ToString());
 				this.methodText = info.ToString();
-				Debug.Log("DoubleCheck: " + this.methodText);
 			}
 	}
 }

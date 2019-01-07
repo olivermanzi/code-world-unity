@@ -12,12 +12,5 @@ namespace Project{
         public string superclass;
         public string[] associations;
         public string[] components;
-
-        [Serializable]
-        public class Method
-        {
-            public string name;
-            public string returnType;
-        }
     }    
 }

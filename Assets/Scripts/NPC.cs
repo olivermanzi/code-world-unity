@@ -38,7 +38,6 @@ namespace Project
 		{
 			Debug.Log("Populated: " + info.ToString());
 			this.npcText = info.ToString();
-			Debug.Log("DoubleCheck: " + this.npcText);
 		}
 	}
 
