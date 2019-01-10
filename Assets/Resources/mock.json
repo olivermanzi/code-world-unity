@@ -38,7 +38,7 @@
             "subclasses":[
                "class8","class9"
             ],
-            "superclass":"class7",
+            "superclass":"class11",
             "associations":[
                 "class5","class6","class7"
             ]

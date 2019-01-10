@@ -22,8 +22,6 @@ namespace Project
 			
 			public void Interact()
 			{
-				Debug.Log("Interaction method run");
-				Debug.Log(this.methodText);
 				gameObject.transform.Find("Text").GetComponent<TextMesh>().text = this.methodText;
 				StartCoroutine(InteractionTimeout());
 			}
@@ -36,9 +34,7 @@ namespace Project
 
 			public void Populate(MethodObject info)
 			{
-				Debug.Log("Populated: " + info.ToString());
 				this.methodText = info.ToString();
-				Debug.Log("DoubleCheck: " + this.methodText);
 			}
 	}
 }
