@@ -25,8 +25,11 @@ public class Portal : MonoBehaviour {
 	{
         if (isOverlapping == true && receiver != null )
         {
+            player.GetComponent<FirstPersonController>().isTeleporting = true;
 			TeleportPlayer ();
 			isOverlapping = false;
+            player.GetComponent<FirstPersonController>().isTeleporting = false;
+
         }
     }
 
@@ -41,21 +44,24 @@ public class Portal : MonoBehaviour {
 	private void TeleportPlayer()
 	{
 		var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
+        Vector3 destinationRot = destination.transform.rotation.eulerAngles;
 		Vector3 portalToPlayer = player.position - transform.position;
 		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
 		//If Player entered portal through front
 		if (dotProduct < 1f) {
-			player.transform.rotation = destination.rotation;
-			player.transform.position = destination.position;
-			Debug.Log("Rotation: " + destination.rotation);
-			 
+            player.transform.forward = destination.forward;
+            player.transform.up = destination.up;
+
+            player.transform.position = destination.position;
 			//Set portalCamera to focus on door entered
 			var cam = attachedCamera.GetComponent<PortalCamera>();
 			cam.portal = transform.parent.Find("Portal").transform;
 			cam.OtherPortal = receiver.parent.Find("Portal").transform;
+            player.GetComponent<FirstPersonController>().RotateTowards(destinationRot);
 
             //Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards
             portalCameraManager.CycleCameras();
-		}
-	}
+
+        }
+    }
 }
