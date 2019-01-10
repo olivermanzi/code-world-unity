@@ -38,9 +38,7 @@
             "subclasses":[
                "class8","class9"
             ],
-            "components":[
-               "class3","class2","class4"
-            ],
+            "superclass":"class11",
             "associations":[
                 "class5","class6","class7"
             ]
@@ -79,9 +77,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         },
         {
             "name":"class3",

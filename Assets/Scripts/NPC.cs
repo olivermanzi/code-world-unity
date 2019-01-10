@@ -22,8 +22,6 @@ namespace Project
 		
 		public void Interact()
 		{
-			Debug.Log("Interaction method run");
-			Debug.Log(this.npcText);
 			gameObject.transform.Find("Text").GetComponent<TextMesh>().text = this.npcText;
 			StartCoroutine(InteractionTimeout());
 		}
@@ -36,9 +34,7 @@ namespace Project
 
 		public void Populate(NPCObject info)
 		{
-			Debug.Log("Populated: " + info.ToString());
 			this.npcText = info.ToString();
-			Debug.Log("DoubleCheck: " + this.npcText);
 		}
 	}
 

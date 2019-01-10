@@ -281,6 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451072961}
   - component: {fileID: 451072960}
+  - component: {fileID: 451072962}
   m_Layer: 0
   m_Name: PortalCameraManager
   m_TagString: Untagged
@@ -300,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentObjects: []
+  player: {fileID: 719412649}
 --- !u!4 &451072961
 Transform:
   m_ObjectHideFlags: 0
@@ -311,8 +313,24 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451072962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451072959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1050975500, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &719412649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4975505419976196, guid: ac48901ab3d39c1488b9bf782fa8a658,
+    type: 2}
+  m_PrefabInternal: {fileID: 1885499686}
 --- !u!1 &770306688
 GameObject:
   m_ObjectHideFlags: 0
