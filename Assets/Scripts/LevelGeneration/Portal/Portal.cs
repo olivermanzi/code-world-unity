@@ -53,11 +53,10 @@ public class Portal : MonoBehaviour {
             player.transform.up = destination.up;
 
             player.transform.position = destination.position;
-			//Set portalCamera to focus on door entered
-			var cam = attachedCamera.GetComponent<PortalCamera>();
-			cam.portal = transform.parent.Find("Portal").transform;
-			cam.OtherPortal = receiver.parent.Find("Portal").transform;
+			
             player.GetComponent<FirstPersonController>().RotateTowards(destinationRot);
+
+            player.GetComponent<PortalHistory>().History.Add(transform.gameObject);
 
             //Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards
             portalCameraManager.CycleCameras();

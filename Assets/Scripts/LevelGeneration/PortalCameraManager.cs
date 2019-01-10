@@ -39,6 +39,7 @@ public class PortalCameraManager : MonoBehaviour {
                 SetObserverCamera(indirectCon, directCon.transform.Find("PortalCamera"));
             }
         }
+        RotateBackPortalCameras();
     }
 
     private GameObject[] GetConnections(Transform location)
@@ -72,5 +73,31 @@ public class PortalCameraManager : MonoBehaviour {
             }
         }
         camera.gameObject.SetActive(true);
+    }
+
+    //There's 3 portal cameras in the scene to ensure smooth view throughout the map, rotated one after the other
+
+    private int cameraCounter = 0;
+    private void RotateBackPortalCameras()
+    {
+        GameObject[] cameras = GameObject.FindGameObjectsWithTag("BackwardPortalCam");
+        if (cameras.Length != 3)
+        {
+            Debug.Log("Not enough cameras chief");
+        }
+        var portalHistory = player.GetComponent<PortalHistory>();
+        if(portalHistory.History.Count != 0)
+        {
+            for (int i = 0; i < cameras.Length; i++)
+            {
+                if (cameraCounter == cameras.Length - 1) { cameraCounter = 0; }
+
+                var nextCam = cameras[i].GetComponent<PortalCamera>();
+                var lastPortal = portalHistory.GetLastPortalEntered().transform;
+                nextCam.portal = lastPortal.parent.Find("Portal");
+                nextCam.OtherPortal = lastPortal.GetComponent<Portal>().receiver.parent.Find("Portal");
+                SetObserverCamera(lastPortal.parent.parent.parent.gameObject, nextCam.transform);
+            }
+        }
     }
 }
