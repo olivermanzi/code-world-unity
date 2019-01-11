@@ -88,16 +88,21 @@ public class PortalCameraManager : MonoBehaviour {
         var portalHistory = player.GetComponent<PortalHistory>();
         if(portalHistory.History.Count != 0)
         {
-            for (int i = 0; i < cameras.Length; i++)
-            {
+           
                 if (cameraCounter == cameras.Length - 1) { cameraCounter = 0; }
 
-                var nextCam = cameras[i].GetComponent<PortalCamera>();
+                var nextCam = cameras[0].GetComponent<PortalCamera>();
                 var lastPortal = portalHistory.GetLastPortalEntered().transform;
                 nextCam.portal = lastPortal.parent.Find("Portal");
                 nextCam.OtherPortal = lastPortal.GetComponent<Portal>().receiver.parent.Find("Portal");
+            lastPortal.GetComponent<Portal>().receiver.GetComponent<BackwardPortal>().attachedCamera = nextCam.transform;
                 SetObserverCamera(lastPortal.parent.parent.parent.gameObject, nextCam.transform);
-            }
+
+                GameObject[] indirectConnections = GetConnections(lastPortal.parent.parent.parent);
+                foreach (var indirectCon in indirectConnections)
+                {
+                    SetObserverCamera(indirectCon, nextCam.transform);
+                }
         }
     }
 }
