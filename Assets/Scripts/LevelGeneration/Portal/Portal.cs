@@ -19,6 +19,10 @@ public class Portal : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		attachedCamera = transform.parent.parent.parent.Find("PortalCamera").transform;
         portalCameraManager = GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>();
+        if(receiver == null)
+        {
+            CloseGate();
+        }
     }
 
     // Update is called once per frame
@@ -64,5 +68,12 @@ public class Portal : MonoBehaviour {
             portalCameraManager.CycleCameras();
 
         }
+    }
+
+    public void CloseGate()
+    {
+        Transform doorway = this.transform.parent.parent;
+        doorway.Find("WallBelow").gameObject.SetActive(true);
+        doorway.Find("WallAbove/Text").gameObject.SetActive(false);
     }
 }

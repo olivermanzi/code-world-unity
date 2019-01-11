@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Sets the text of the TextMesh hovering above the Class gameobject
+/// DEPRECATED
 /// </summary>
 public class NameSetter : MonoBehaviour {
 
