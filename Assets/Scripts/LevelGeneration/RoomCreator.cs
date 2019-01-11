@@ -69,8 +69,8 @@ namespace Project
         {
             var classObject = room.Info;
             if (classObject.associations.Length > 0) { CreateAssociationsCorridor(room, newRoom); }
-            if (classObject.components.Length > 0) { CreateComponentsCorridor(room, newRoom); }
-            if (classObject.subclasses.Length > 0 || !String.IsNullOrEmpty(classObject.superclass)) { CreateInheritenceStairs(room, newRoom); }
+            if (!String.IsNullOrEmpty(classObject.superclass)) { CreateSuperClassCorridor(room, newRoom); }
+            if (classObject.subclasses.Length > 0) { CreateSubClassesCorridor(room, newRoom); }
         }
 
         private void CreateAssociationsCorridor(Room room, GameObject newRoom)
@@ -95,9 +95,9 @@ namespace Project
             }
         }
 
-        private void CreateComponentsCorridor(Room room, GameObject newRoom)
+        private void CreateSubClassesCorridor(Room room, GameObject newRoom)
         {
-            var corridor = BuildCorridor(room.Info.components);
+            var corridor = BuildCorridor(room.Info.subclasses);
             var roomBH = newRoom.GetComponent<RoomBehaviour>();
 
             for (int i = 0; i < corridor.transform.childCount; i++)
@@ -119,9 +119,9 @@ namespace Project
             }
         }
 
-        private void CreateInheritenceStairs(Room room, GameObject newRoom)
+        private void CreateSuperClassCorridor(Room room, GameObject newRoom)
         {
-            var corridor = BuildCorridor(room.Info.subclasses);
+            var corridor = BuildCorridor(new string[] { room.Info.superclass });
             for (int i = 0; i < corridor.transform.childCount; i++)
             {
                 if (corridor.transform.GetChild(i).tag == "BackDoorEntry")

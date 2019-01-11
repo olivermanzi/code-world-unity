@@ -27,6 +27,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_CameraTargetRot = camera.localRotation;
         }
 
+        public void MimicRotation(Transform character, Transform camera, Vector3 toMimic)
+        {
+
+            character.rotation = Quaternion.Euler(new Vector3(0, toMimic.y, 0));
+            camera.rotation = Quaternion.Euler(new Vector3(-toMimic.x, 0, 0));
+
+            m_CharacterTargetRot = Quaternion.FromToRotation(character.transform.up, -Physics.gravity) * character.rotation;
+        }
 
         public void LookRotation(Transform character, Transform camera)
         {

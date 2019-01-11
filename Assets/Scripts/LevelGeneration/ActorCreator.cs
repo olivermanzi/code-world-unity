@@ -142,7 +142,6 @@ namespace Project{
                             obj.GetComponent<NPC>().Populate(npc);
                             break;
                     }
-                    Debug.Log("Created objects: " + i++);
                 }
             }
         }
@@ -300,7 +299,6 @@ namespace Project{
                             obj.GetComponent<Method>().Populate(method);
                             break;
                     }
-                    Debug.Log("Created objects: " + i++);
                 }
             }
         }

@@ -90,6 +90,10 @@ public class PortalCamera : MonoBehaviour
 
 		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
 		int PortalEntranceRotation = (int) portal.parent.parent.rotation.eulerAngles.y;
+        if(otherPortalEntranceRotation == 0)
+        {
+            result = new Vector3(portal.transform.position.x+offset.x, defaultPosition.y, portal.transform.position.z + offset.z);
+        }
 		if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
 		{
 			var zDiff = portal.position.x - offset.z;
@@ -113,7 +117,11 @@ public class PortalCamera : MonoBehaviour
 		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
 		int PortalEntranceRotation = (int) portal.parent.parent.rotation.eulerAngles.y;
 
-		if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
+        if(otherPortalEntranceRotation == 0)
+        {
+            res = Quaternion.Euler(res.eulerAngles.x, res.eulerAngles.y+180, res.eulerAngles.z);
+        }
+        if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
 		{
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y + 90 ,res.eulerAngles.z);
 		}
