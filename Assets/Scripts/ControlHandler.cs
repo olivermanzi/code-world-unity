@@ -25,6 +25,9 @@ namespace Project{
 		/// </value>
 		public float MovementFactor = 0.75f;
 
+		public GameObject firstPersonCanvas;
+		public GameObject fastTravelCanvas;
+
 		Rigidbody playerRb;
 		// Use this for initialization
 		void Start () {
@@ -36,12 +39,14 @@ namespace Project{
 		void Update () {
 			CameraListener();
 			InteractionListener();
+			FastTravelListener();
 		}
 
 		/// <summary>
 		/// Listens whether the M key is pressed and switches the two cameras' active state around if it is.
 		/// e.g. If FP.active == true and BE.active == false, it changes the respective values to false and true.
 		/// This switches which camera is active for the user.
+		/// Deprecated
 		/// </summary>
 		public void CameraListener(){
 			if (Input.GetKeyDown(KeyCode.M)){
@@ -63,6 +68,18 @@ namespace Project{
 			if(Input.GetKeyDown(KeyCode.E))
 			{
 				gameObject.GetComponent<ObjectInteraction>().StartInteraction();
+			}
+		}
+
+		/// <summary>
+		/// Switches active canvases
+		/// </summary>
+		public void FastTravelListener(){
+			if(Input.GetKeyDown(KeyCode.F))
+			{
+				firstPersonCanvas.SetActive(!firstPersonCanvas.activeSelf);
+				fastTravelCanvas.SetActive(!fastTravelCanvas.activeSelf);
+				Cursor.visible = !Cursor.visible;
 			}
 		}
 	}
