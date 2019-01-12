@@ -49,7 +49,7 @@ public class Corridor : MonoBehaviour {
         {
             Transform destination = target.transform;
             door.GetComponentInChildren<Portal>().receiver = destination.GetComponent<RoomBehaviour>().BackTeleporter.transform;
-            door.GetComponentInChildren<Portal>().destination = name;
+            door.GetComponentInChildren<Portal>().destinationString = name;
             door.transform.parent.GetComponentInChildren<TextMesh>().text = name;
             destination.Find("PortalCamera").GetComponent<PortalCamera>().OtherPortal = door.transform.Find("Portal").GetComponent<MeshRenderer>().transform;
             Connections.Add(target);
