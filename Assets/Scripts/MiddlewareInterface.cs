@@ -2,9 +2,11 @@
 using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 
 namespace Project
@@ -16,6 +18,7 @@ namespace Project
         Text project;
         Boolean GitLab = true;
         Boolean GitHub = false;
+        public GameObject error;
 
         // Use this for initialization
         void Start () {
@@ -47,10 +50,10 @@ namespace Project
         public String checkRepo()
         {
             
-            if(GitHub == true && GitLab == false)
+            if(GitHub && !GitLab)
             {
                 return "f";
-            }else if(GitHub == false && GitLab == true)
+            }else if(!GitHub && GitLab)
             {
                 return "t";
             }
@@ -85,11 +88,21 @@ namespace Project
                 FirstNode.StartInfo.Arguments = User +" "+ Repository+" "+Page;
                 FirstNode.Start();
                 FirstNode.WaitForExit();
-                SceneManager.LoadScene("Main", LoadSceneMode.Single);
+                if(File.Exists("/Resources/Project.json"))
+                {
+                    SceneManager.LoadScene("Main", LoadSceneMode.Single);
+                }
+                else
+                {
+                    error.SetActive(true);
+                    error.transform.Find("ErrorText").GetComponent<Text>().text = "Failed to fetch repository!";
+                }
             }
             catch (Exception e)
             {
-                UnityEngine.Debug.Log(e.Message);
+                //UnityEngine.Debug.Log(e.Message);
+                error.SetActive(true);
+                error.transform.Find("ErrorText").GetComponent<Text>().text = e.Message;
             }
 
         }
