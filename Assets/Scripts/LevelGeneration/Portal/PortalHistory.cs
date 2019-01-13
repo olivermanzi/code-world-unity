@@ -45,7 +45,7 @@ public class PortalHistory : MonoBehaviour {
     {
         GameObject res = null;
 
-        if (History.Count != 0)
+        if (History.Count >= 1)
         {
             res = History[History.Count - 1];
             History.RemoveAt(History.Count-1);

@@ -1,17 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
     public Transform receiver;
+
     public string destination;
 
 	private Transform player;
 	private Transform attachedCamera;
     private PortalCameraManager portalCameraManager;
+
 	private bool isOverlapping = false;
-	private float _teleportTimer = 0.0f;
     private bool isBackwardPortal = false;
 
     private void Start()
@@ -43,7 +42,6 @@ public class Portal : MonoBehaviour {
     {
         if(collider.tag == "Player")
         {
-            
             isOverlapping = true;
         }
     }
@@ -56,7 +54,7 @@ public class Portal : MonoBehaviour {
         {
             //Get the portal we're supposed to TP to and remove it from history
             destination = GetComponent<BackwardPortal>().attachedCamera;
-            receiver = history.GetLastPortalEntered().transform;
+            receiver = history.PopLastPortalEntered().transform;
         }
         else
         {
@@ -67,22 +65,20 @@ public class Portal : MonoBehaviour {
 		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
 		//If Player entered portal through front
 		if (dotProduct < 1f) {
+            //Teleport player and adjust rotations
             player.transform.forward = destination.forward;
             player.transform.up = destination.up;
-
             player.transform.position = destination.position;
-			
             player.GetComponent<FirstPersonController>().RotateTowards(destinationRot);
 
-            //Make sure I'm not adding to history when I'm going backwards
+            //Only add to history if we aren't going through a Back portal
             if (!isBackwardPortal)
             {
                 history.History.Add(gameObject);
             }
 
-            //Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards
+            //Adjust portal cameras
             portalCameraManager.CycleCameras();
-
         }
     }
 }
