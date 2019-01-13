@@ -2,9 +2,11 @@
 using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 
 namespace Project
@@ -47,10 +49,10 @@ namespace Project
         public String checkRepo()
         {
             
-            if(GitHub == true && GitLab == false)
+            if(GitHub && !GitLab)
             {
                 return "f";
-            }else if(GitHub == false && GitLab == true)
+            }else if(!GitHub && GitLab)
             {
                 return "t";
             }
@@ -85,11 +87,20 @@ namespace Project
                 FirstNode.StartInfo.Arguments = User +" "+ Repository+" "+Page;
                 FirstNode.Start();
                 FirstNode.WaitForExit();
-                SceneManager.LoadScene("Main", LoadSceneMode.Single);
+                if(File.Exists("/Resources/Project.json"))
+                {
+                    SceneManager.LoadScene("Main", LoadSceneMode.Single);
+                }
+                else
+                {
+                    EditorUtility.DisplayDialog("Error", "Project not found", "OK");
+                }
             }
             catch (Exception e)
             {
-                UnityEngine.Debug.Log(e.Message);
+                //UnityEngine.Debug.Log(e.Message);
+                EditorUtility.DisplayDialog("Error",
+                e.Message, "OK");
             }
 
         }
