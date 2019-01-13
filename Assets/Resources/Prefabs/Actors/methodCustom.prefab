@@ -127,8 +127,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142871857694114}
-  m_LocalRotation: {x: 0, y: 0.92387956, z: 0, w: 0.38268346}
-  m_LocalPosition: {x: -73, y: 0, z: 17}
+  m_LocalRotation: {x: 0, y: 0.8241262, z: 0, w: 0.56640625}
+  m_LocalPosition: {x: -78, y: 0, z: -22}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4538973940129864}
@@ -354,8 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36e068da70753642bd7fde310315a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  methodText: 'Name: randommethod8
+  methodText: 'Name: createECDHSecret
 
-    returnType: DAB
+    returnType: byte[]
 
 '
