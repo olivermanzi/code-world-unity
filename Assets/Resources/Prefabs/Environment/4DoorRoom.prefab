@@ -433,7 +433,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4590730627486772}
   m_Layer: 0
+<<<<<<< HEAD
+  m_Name: Secp256k1Context
+=======
   m_Name: class9
+>>>>>>> bed81c1b35fe8a030fa4651c093a2626d6e4243b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
