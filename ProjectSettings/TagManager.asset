@@ -11,6 +11,7 @@ TagManager:
   - BackDoorEntry
   - RightDoorEntry
   - PortalCam
+  - BackwardPortalCam
   layers:
   - Default
   - TransparentFX

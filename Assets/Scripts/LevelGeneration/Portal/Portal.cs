@@ -5,26 +5,42 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
-    public Transform receiver;
+    private Transform _receiver;
+    public Transform receiver
+    {
+        get{ return _receiver; }
+        set
+        {
+            //TODO: Write a coroutine that disables this for X seconds
+            _receiver = value;
+        }
+    } 
+
     public string destination;
 
 	private Transform player;
 	private Transform attachedCamera;
     private PortalCameraManager portalCameraManager;
+
 	private bool isOverlapping = false;
-	private float _teleportTimer = 0.0f;
+    private bool isBackwardPortal = false;
 
     private void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		attachedCamera = transform.parent.parent.parent.Find("PortalCamera").transform;
         portalCameraManager = GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>();
+        isBackwardPortal = transform.parent.parent.CompareTag("BackDoorEntry") ? true : false;
+        if (isBackwardPortal)
+        {
+            gameObject.AddComponent<BackwardPortal>();
+        }
     }
 
     // Update is called once per frame
     void Update () 
 	{
-        if (isOverlapping == true && receiver != null )
+        if (isOverlapping == true  )
         {
             player.GetComponent<FirstPersonController>().isTeleporting = true;
 			TeleportPlayer ();
@@ -44,25 +60,40 @@ public class Portal : MonoBehaviour {
 
 	private void TeleportPlayer()
 	{
-		var destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
+        var history = player.GetComponent<PortalHistory>();
+        Transform destination = null;
+        if (isBackwardPortal)
+        {
+            //Get the portal we're supposed to TP to and remove it from history
+            destination = GetComponent<BackwardPortal>().attachedCamera;
+            receiver = history.PopLastPortalEntered().transform;
+        }
+        else
+        {
+            destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
+        }
+        Debug.Log("big");
         Vector3 destinationRot = destination.transform.rotation.eulerAngles;
 		Vector3 portalToPlayer = player.position - transform.position;
 		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
 		//If Player entered portal through front
 		if (dotProduct < 1f) {
+            Debug.Log("lmayo");
+
+            //Teleport player and adjust rotations
             player.transform.forward = destination.forward;
             player.transform.up = destination.up;
-
             player.transform.position = destination.position;
-			//Set portalCamera to focus on door entered
-			var cam = attachedCamera.GetComponent<PortalCamera>();
-			cam.portal = transform.parent.Find("Portal").transform;
-			cam.OtherPortal = receiver.parent.Find("Portal").transform;
             player.GetComponent<FirstPersonController>().RotateTowards(destinationRot);
 
-            //Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards
-            portalCameraManager.CycleCameras();
+            //Only add to history if we aren't going through a Back portal
+            if (!isBackwardPortal)
+            {
+                history.History.Add(gameObject);
+            }
 
+            //Adjust portal cameras
+            portalCameraManager.CycleCameras();
         }
     }
 }
