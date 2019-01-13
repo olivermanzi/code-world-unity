@@ -14,7 +14,7 @@ namespace Project{
             _jsonParser = new JSONParser();
             _gameObjectCreator = ScriptableObject.CreateInstance("GameObjectCreator") as GameObjectCreator;
 
-            string path = "Assets/Resources/Project.json"; //TODO: Change this so filename is more dynamic
+            string path = "Assets/Resources/mock.json"; //TODO: Change this so filename is more dynamic
             _streamReader = new StreamReader(path);
             SetupWorld();
         }

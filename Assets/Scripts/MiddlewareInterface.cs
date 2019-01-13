@@ -14,8 +14,8 @@ namespace Project
         // The global variables are here as unity doesnt allow functions called in 
         // the UnityEngine to have more than one parameter
         Text project;
-        Boolean GitLab  ;
-        Boolean GitHub  ;
+        Boolean GitLab = true;
+        Boolean GitHub = false;
 
         // Use this for initialization
         void Start () {
@@ -32,15 +32,14 @@ namespace Project
         }
 
         //These are setter for the GitLab and GitHub variables
-        public void SetGitLab(Toggle repo)
+        public void SetGitLab(Boolean repo)
         {
-            
-            GitLab = repo.isOn;
+            GitLab = repo;
         }
 
-        public void SetGitHub(Toggle repo)
+        public void SetGitHub(Boolean repo)
         {
-            GitHub = repo.isOn;
+            GitHub = repo;
         }
         
         // This functions checks and returns which of the Repo pages should be passed as a argument

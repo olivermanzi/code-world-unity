@@ -1632,13 +1632,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0.95371693, z: 0, w: 0.30070582}
   m_LocalPosition: {x: 2.3625913, y: 10.620184, z: 6.9546137}
-=======
-  m_LocalRotation: {x: 0, y: 0.64944804, z: 0, w: -0.760406}
-  m_LocalPosition: {x: -18, y: 0, z: 11}
->>>>>>> 4ff21603b5639aabfe24304e28ab27b4196c6992
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 400202}
@@ -3499,9 +3494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca264b29aba1aff4f926b4a3a16dfc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcText: 'Name: ecdhString
+  npcText: 'Name: randomattr4
 
-    Type: String
+    Type: Double
 
 '
 --- !u!114 &114647676382846526
