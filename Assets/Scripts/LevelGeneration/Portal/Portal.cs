@@ -2,7 +2,16 @@
 
 public class Portal : MonoBehaviour {
 
-    public Transform receiver;
+    private Transform _receiver;
+    public Transform receiver
+    {
+        get{ return _receiver; }
+        set
+        {
+            //TODO: Write a coroutine that disables this for X seconds
+            _receiver = value;
+        }
+    } 
 
     public string destination;
 
