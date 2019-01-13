@@ -8,17 +8,25 @@
                     "name":"randomattr1",
                     "type":"int"
                 },
+				{
+                    "name":"randomattr5",
+                    "type":"double"
+                },
+				{
+                    "name":"randomattr6",
+                    "type":"char"
+                },
                 {
                     "name":"randomattr2",
-                    "type":"int"
+                    "type":"float"
                 },
                 {
                     "name":"randomattr3",
-                    "type":"int"
+                    "type":"boolean"
                 },
                 {
                     "name":"randomattr4",
-                    "type":"Double"
+                    "type":"custom"
                 }
             ],
             "methods":[
@@ -28,11 +36,15 @@
                 },
                 {
                     "name":"randommethod2",
-                    "returnType":"int"
+                    "returnType":"double"
                 },
                 {
                     "name":"randommethod3",
-                    "returnType":"int"
+                    "returnType":"void"
+                },
+				{
+                    "name":"randommethod4",
+                    "returnType":"char"
                 }
             ],
             "subclasses":[

@@ -87,8 +87,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355307090456906}
-  m_LocalRotation: {x: 0, y: 0.3420202, z: 0, w: -0.9396926}
-  m_LocalPosition: {x: -19, y: 0, z: 29}
+  m_LocalRotation: {x: 0, y: 0.9563048, z: 0, w: -0.29237178}
+  m_LocalPosition: {x: -80, y: 0, z: 12}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4719178523596606}
@@ -103,13 +103,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128893808448342}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6799998, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.04, y: 2.75, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4046403404401084}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4719178523596606
 Transform:
   m_ObjectHideFlags: 1
@@ -262,14 +262,16 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1128893808448342}
-  m_Text: 
+  m_Text: '
+
+'
   m_OffsetZ: 0
   m_CharacterSize: 0.25
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 1
+  m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 4
+  m_FontSize: 10
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 0}
@@ -314,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36e068da70753642bd7fde310315a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  methodText: 'Name: randommethod5
+  methodText: 'Name: randommethod4
 
     returnType: char
 

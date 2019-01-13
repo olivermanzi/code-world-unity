@@ -36,6 +36,7 @@ namespace Project{
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
+                            position.y = 0;
                             obj.transform.localPosition = position;
                             obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
@@ -64,7 +65,7 @@ namespace Project{
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
-                            position = new Vector3(position.x, position.y+10, position.z);  
+                            position.y = 8;
                             obj.transform.localPosition = position;
                             obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
@@ -135,6 +136,7 @@ namespace Project{
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
+                            position.y = 0;
                             obj.transform.localPosition = position;
                             obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<NPC>().Populate(npc);
@@ -164,6 +166,7 @@ namespace Project{
                             {
                                 position = new Vector3(rnd.Next(-90, -10), newRoom.transform.position.y, rnd.Next(-40, 40));
                             }
+                            position.y = 0;
                             obj.transform.localPosition = position;
                             obj.transform.rotation = Quaternion.Euler(0, rnd.Next(0, 360), 0);
                             obj.GetComponent<Method>().Populate(method);
