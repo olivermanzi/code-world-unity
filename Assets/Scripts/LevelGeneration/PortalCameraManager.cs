@@ -8,6 +8,19 @@ public class PortalCameraManager : MonoBehaviour {
     public GameObject[] environmentObjects;
     public Transform player;
 
+    private GameObject[] cameras;
+
+    public void Start()
+    {
+        cameras = GameObject.FindGameObjectsWithTag("BackwardPortalCam");
+        if (cameras.Length != 3)
+        {
+            Debug.Log("Not enough cameras chief");
+        }
+        cameras[1].GetComponent<PortalCamera>().playerCamera = cameras[0].transform;
+        cameras[2].GetComponent<PortalCamera>().playerCamera = cameras[1].transform;
+
+    }
     public void CycleCameras()
     {
         Transform playerLocation = null;
@@ -77,32 +90,44 @@ public class PortalCameraManager : MonoBehaviour {
 
     //There's 3 portal cameras in the scene to ensure smooth view throughout the map, rotated one after the other
 
-    private int cameraCounter = 0;
     private void RotateBackPortalCameras()
     {
-        GameObject[] cameras = GameObject.FindGameObjectsWithTag("BackwardPortalCam");
-        if (cameras.Length != 3)
-        {
-            Debug.Log("Not enough cameras chief");
-        }
+        
         var portalHistory = player.GetComponent<PortalHistory>();
         if(portalHistory.History.Count != 0)
         {
-           
-                if (cameraCounter == cameras.Length - 1) { cameraCounter = 0; }
+            var camOne = cameras[0].GetComponent<PortalCamera>();
+            var lastPortal = portalHistory.GetLastPortalEntered().transform;
+            SetupBackPortalCamera(camOne, lastPortal);
 
-                var nextCam = cameras[0].GetComponent<PortalCamera>();
-                var lastPortal = portalHistory.GetLastPortalEntered().transform;
-                nextCam.portal = lastPortal.parent.Find("Portal");
-                nextCam.OtherPortal = lastPortal.GetComponent<Portal>().receiver.parent.Find("Portal");
-            lastPortal.GetComponent<Portal>().receiver.GetComponent<BackwardPortal>().attachedCamera = nextCam.transform;
-                SetObserverCamera(lastPortal.parent.parent.parent.gameObject, nextCam.transform);
+            if(portalHistory.History.Count >= 2)
+            {
+                var camTwo = cameras[1].GetComponent<PortalCamera>();
+                var secondToLastPortal = portalHistory.GetSecondToLastPortalEntered().transform;
+                SetupBackPortalCamera(camTwo, secondToLastPortal);
+            }
 
-                GameObject[] indirectConnections = GetConnections(lastPortal.parent.parent.parent);
-                foreach (var indirectCon in indirectConnections)
-                {
-                    SetObserverCamera(indirectCon, nextCam.transform);
-                }
+            if (portalHistory.History.Count >= 3)
+            {
+                var camThree = cameras[2].GetComponent<PortalCamera>();
+                var thirdToLastPortal = portalHistory.GetThirdToLastPortalEntered().transform;
+                SetupBackPortalCamera(camThree, thirdToLastPortal);
+            }
+        }
+    }
+
+    private void SetupBackPortalCamera(PortalCamera cam, Transform portal)
+    {
+        cam.portal = portal.parent.Find("Portal");
+        cam.otherPortals.Clear();
+        cam.OtherPortal = portal.GetComponent<Portal>().receiver.parent.Find("Portal");
+        portal.GetComponent<Portal>().receiver.GetComponent<BackwardPortal>().attachedCamera = cam.transform;
+        SetObserverCamera(portal.parent.parent.parent.gameObject, cam.transform);
+
+        GameObject[] indirectConnections = GetConnections(portal.parent.parent.parent);
+        foreach (var indirectCon in indirectConnections)
+        {
+            SetObserverCamera(indirectCon, cam.transform);
         }
     }
 }
