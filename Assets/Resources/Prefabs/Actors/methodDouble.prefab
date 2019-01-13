@@ -72,13 +72,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417223972960358}
-<<<<<<< HEAD
-  m_LocalRotation: {x: 0, y: 0.9723699, z: 0, w: 0.23344542}
-  m_LocalPosition: {x: -14, y: 0, z: 16}
-=======
   m_LocalRotation: {x: 0, y: 0.8746198, z: 0, w: -0.48480958}
   m_LocalPosition: {x: -80, y: 0, z: 17}
->>>>>>> gateblock
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4519589118616896}
