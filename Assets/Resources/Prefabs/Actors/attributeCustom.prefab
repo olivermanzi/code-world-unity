@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 11100000}
   - component: {fileID: 65403850918089928}
   - component: {fileID: 114000929828665442}
+  - component: {fileID: 136290602579776638}
   m_Layer: 0
   m_Name: attributeCustom
   m_TagString: Interactable
@@ -1632,7 +1633,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0.95371693, z: 0, w: 0.30070582}
-  m_LocalPosition: {x: -59, y: 0, z: -24}
+  m_LocalPosition: {x: 2.3625913, y: 10.620184, z: 6.9546137}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 400202}
@@ -3457,7 +3458,7 @@ BoxCollider:
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.49, y: 1.9, z: 0.61}
   m_Center: {x: 0, y: 0.81, z: 0.12}
@@ -3510,3 +3511,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+--- !u!136 &136290602579776638
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
