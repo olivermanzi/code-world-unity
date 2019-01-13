@@ -125,10 +125,14 @@ public class PortalCamera : MonoBehaviour
 		{
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y + 90 ,res.eulerAngles.z);
 		}
-		else if (otherPortalEntranceRotation == 270 ||  PortalEntranceRotation == 90)
+		if (otherPortalEntranceRotation == 270 ||  PortalEntranceRotation == 90)
 		{
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y - 90, res.eulerAngles.z);
 		}
-		return res;
+        if (otherPortalEntranceRotation == 180)
+        {
+            res = Quaternion.Euler(res.eulerAngles.x, res.eulerAngles.y, res.eulerAngles.z);
+        }
+        return res;
 	}
 }
