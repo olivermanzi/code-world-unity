@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
-<<<<<<< HEAD
     private Transform _receiver;
     public Transform receiver
     {
@@ -17,37 +16,28 @@ public class Portal : MonoBehaviour {
         }
     } 
 
-    public string destination;
-
-	private Transform player;
-	private Transform attachedCamera;
-    private PortalCameraManager portalCameraManager;
-
-	private bool isOverlapping = false;
-    private bool isBackwardPortal = false;
-=======
-    public Transform receiver;
     public string destinationString;
-    public Transform destination;
+
 	private Transform player;
 	private Transform attachedCamera;
     private PortalCameraManager portalCameraManager;
     private Transform _wallBelow;
+
 	private bool isOverlapping = false;
-	private float _teleportTimer = 0.0f;    
->>>>>>> gateblock
+    private bool isBackwardPortal = false;
+    private float _teleportTimer = 0.0f;
+
 
     private void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		attachedCamera = transform.parent.parent.parent.Find("PortalCamera").transform;
         portalCameraManager = GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>();
-<<<<<<< HEAD
         isBackwardPortal = transform.parent.parent.CompareTag("BackDoorEntry") ? true : false;
         if (isBackwardPortal)
         {
             gameObject.AddComponent<BackwardPortal>();
-=======
+        }
         _wallBelow = this.transform.parent.parent.Find("WallBelow");
         _wallBelow.gameObject.SetActive(false);
         if(receiver != null)
@@ -57,7 +47,6 @@ public class Portal : MonoBehaviour {
         if(destination == null)
         {
             CloseGate();
->>>>>>> gateblock
         }
     }
 
@@ -84,7 +73,6 @@ public class Portal : MonoBehaviour {
 
 	private void TeleportPlayer()
 	{
-<<<<<<< HEAD
         var history = player.GetComponent<PortalHistory>();
         Transform destination = null;
         if (isBackwardPortal)
@@ -98,8 +86,6 @@ public class Portal : MonoBehaviour {
             destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
         }
         Debug.Log("big");
-=======
->>>>>>> gateblock
         Vector3 destinationRot = destination.transform.rotation.eulerAngles;
 		Vector3 portalToPlayer = player.position - transform.position;
 		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
