@@ -18,6 +18,7 @@ namespace Project
         Text project;
         Boolean GitLab = true;
         Boolean GitHub = false;
+        public GameObject error;
 
         // Use this for initialization
         void Start () {
@@ -93,14 +94,15 @@ namespace Project
                 }
                 else
                 {
-                    EditorUtility.DisplayDialog("Error", "Project not found", "OK");
+                    error.SetActive(true);
+                    error.transform.Find("ErrorText").GetComponent<Text>().text = "Failed to fetch repository!";
                 }
             }
             catch (Exception e)
             {
                 //UnityEngine.Debug.Log(e.Message);
-                EditorUtility.DisplayDialog("Error",
-                e.Message, "OK");
+                error.SetActive(true);
+                error.transform.Find("ErrorText").GetComponent<Text>().text = e.Message;
             }
 
         }
