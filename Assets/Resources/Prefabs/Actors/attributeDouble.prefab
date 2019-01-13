@@ -803,8 +803,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803605666635896}
-  m_LocalRotation: {x: 0, y: 0.52991927, z: 0, w: 0.8480481}
-  m_LocalPosition: {x: -44, y: 0, z: 22}
+  m_LocalRotation: {x: 0, y: 0.19936793, z: 0, w: 0.9799247}
+  m_LocalPosition: {x: -71, y: 0, z: -14}
   m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 4874987817080112}

@@ -79,8 +79,19 @@ namespace Project{
 			{
 				firstPersonCanvas.SetActive(!firstPersonCanvas.activeSelf);
 				fastTravelCanvas.SetActive(!fastTravelCanvas.activeSelf);
+				if(!Cursor.visible)
+				{
+					Cursor.lockState = CursorLockMode.Confined;
+				}
+				else
+				{
+					Cursor.lockState = CursorLockMode.None;
+				}
 				Cursor.visible = !Cursor.visible;
+				this.gameObject.GetComponent<FirstPersonController>().enabled = !this.gameObject.GetComponent<FirstPersonController>().enabled;
 			}
 		}
 	}
+
+
 }
