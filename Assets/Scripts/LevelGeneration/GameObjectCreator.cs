@@ -6,17 +6,28 @@ namespace Project{
     {
         private RoomCreator _roomCreator;
         private ConnectionGenerator _connectionGenerator;
+        private PortalCameraManager _portalCameraManager;
+
 
         public void OnEnable()
         {
             _roomCreator = CreateInstance("RoomCreator") as RoomCreator;
             _connectionGenerator = CreateInstance("ConnectionGenerator") as ConnectionGenerator;
+            _portalCameraManager = FindObjectOfType<PortalCameraManager>();
         }
 
-        public void Compose (ClassObject classObject)
+        public void Compose (ClassObject[] classes)
         {
-            List<GameObject> items = _roomCreator.CreateRoomAndExtensions(classObject);
-            _connectionGenerator.CreateConnections(items);
+            List<GameObject> items = null;
+            foreach (var c in classes)
+            {
+               items = _roomCreator.CreateRoomAndExtensions(c);
+               _portalCameraManager.environmentObjects = items.ToArray();
+            }
+            if (items != null)
+            {
+                _connectionGenerator.CreateConnections(items);
+            }
         }
 
         //Count number of relationships a class has

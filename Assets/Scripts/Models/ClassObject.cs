@@ -6,12 +6,10 @@ namespace Project{
     {
         public string name;
         public NPCObject[] attributes;
-        public Method[] methods;
-        public string[] interfaces;
+        public MethodObject[] methods;
         public string[] subclasses;
         public string superclass;
         public string[] associations;
-        public string[] components;
 
         [Serializable]
         public class Method

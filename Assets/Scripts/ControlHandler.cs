@@ -25,6 +25,9 @@ namespace Project{
 		/// </value>
 		public float MovementFactor = 0.75f;
 
+		public GameObject firstPersonCanvas;
+		public GameObject fastTravelCanvas;
+
 		Rigidbody playerRb;
 		// Use this for initialization
 		void Start () {
@@ -36,6 +39,7 @@ namespace Project{
 		void Update () {
 			CameraListener();
 			InteractionListener();
+			FastTravelListener();
 		}
 
 		/// <summary>
@@ -65,5 +69,35 @@ namespace Project{
 				gameObject.GetComponent<ObjectInteraction>().StartInteraction();
 			}
 		}
+
+		/// <summary>
+		/// Listens for input to toggle the fast travel menu.
+		/// </summary>
+		public void FastTravelListener(){
+			if(Input.GetKeyDown(KeyCode.F))
+			{
+				ToggleFTUI();
+			}
+		}
+		/// <summary>
+		/// Toggles the fast travel UI.
+		/// Made public because it is used elsewhere.
+		/// </summary>
+		public void ToggleFTUI()
+		{
+				firstPersonCanvas.SetActive(!firstPersonCanvas.activeSelf);
+				fastTravelCanvas.SetActive(!fastTravelCanvas.activeSelf);
+				if(!Cursor.visible)
+				{
+					Cursor.lockState = CursorLockMode.Confined;
+				}
+				else
+				{
+					Cursor.lockState = CursorLockMode.None;
+				}
+				Cursor.visible = !Cursor.visible;
+				this.gameObject.GetComponent<FirstPersonController>().enabled = !this.gameObject.GetComponent<FirstPersonController>().enabled;
+		}
+
 	}
 }

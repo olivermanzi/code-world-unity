@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Project
 {
+	/// <summary>
+	/// Allows interaction with NPCs
+	/// </summary>
 	public class NPC : MonoBehaviour, IInteractable {
 
 		NPCObject npcInfo;
@@ -22,23 +25,19 @@ namespace Project
 		
 		public void Interact()
 		{
-			Debug.Log("Interaction method run");
-			Debug.Log(this.npcText);
-			gameObject.GetComponent<TextMesh>().text = this.npcText;
+			gameObject.transform.Find("Text").GetComponent<TextMesh>().text = this.npcText;
 			StartCoroutine(InteractionTimeout());
 		}
 
 		IEnumerator InteractionTimeout()
 		{
 			yield return new WaitForSeconds(7);
-			this.gameObject.GetComponent<TextMesh>().text = "";
+			this.gameObject.transform.Find("Text").GetComponent<TextMesh>().text = "";
 		}
 
 		public void Populate(NPCObject info)
 		{
-			Debug.Log("Populated: " + info.ToString());
 			this.npcText = info.ToString();
-			Debug.Log("DoubleCheck: " + this.npcText);
 		}
 	}
 

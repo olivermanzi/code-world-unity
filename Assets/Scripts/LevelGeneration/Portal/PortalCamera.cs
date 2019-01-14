@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class PortalCamera : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class PortalCamera : MonoBehaviour
 			_otherPortal = value;
 			if(_otherPortal != null)
 			{
+                if (!otherPortals.Contains(_otherPortal))
+                {
+                    otherPortals.Add(_otherPortal);
+                }
 				_otherPortal.GetComponent<MeshRenderer>().material = mat;
 			}
 		}
@@ -24,10 +29,12 @@ public class PortalCamera : MonoBehaviour
     private Material mat;
     private Camera cam;
 
+    public List<Transform> otherPortals;
+
     private void Awake()
     {
         cam= gameObject.GetComponent<Camera>();
-     
+        otherPortals = new List<Transform>();
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
         if (cam.targetTexture != null)
@@ -51,7 +58,10 @@ public class PortalCamera : MonoBehaviour
         cam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         mat = new Material(shader);
         mat.mainTexture = cam.targetTexture;
-        _otherPortal.GetComponent<MeshRenderer>().material = mat;
+        if(_otherPortal != null)
+        {
+            _otherPortal.GetComponent<MeshRenderer>().material = mat;
+        }
     }
 
 
@@ -80,6 +90,10 @@ public class PortalCamera : MonoBehaviour
 
 		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
 		int PortalEntranceRotation = (int) portal.parent.parent.rotation.eulerAngles.y;
+        if(otherPortalEntranceRotation == 0)
+        {
+            result = new Vector3(portal.transform.position.x+offset.x, defaultPosition.y, portal.transform.position.z + offset.z);
+        }
 		if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
 		{
 			var zDiff = portal.position.x - offset.z;
@@ -92,7 +106,11 @@ public class PortalCamera : MonoBehaviour
 			var xDiff = portal.position.z - offset.x;
 			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
 		}
-		return result;
+        if (otherPortalEntranceRotation == 180 && PortalEntranceRotation == 0)
+        {
+            result = new Vector3(portal.transform.position.x + offset.x, defaultPosition.y, portal.transform.position.z + offset.z);
+        }
+        return result;
     }
 
 	//Align PortalCamera rotation with player camera rot with regards to rotation of the OtherPortal's gateway object
@@ -103,14 +121,22 @@ public class PortalCamera : MonoBehaviour
 		int otherPortalEntranceRotation = (int) OtherPortal.parent.parent.rotation.eulerAngles.y;
 		int PortalEntranceRotation = (int) portal.parent.parent.rotation.eulerAngles.y;
 
-		if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
+        if(otherPortalEntranceRotation == 0)
+        {
+            res = Quaternion.Euler(res.eulerAngles.x, res.eulerAngles.y+180, res.eulerAngles.z);
+        }
+        if (otherPortalEntranceRotation == 90 || PortalEntranceRotation == 270) 
 		{
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y + 90 ,res.eulerAngles.z);
 		}
-		else if (otherPortalEntranceRotation == 270 ||  PortalEntranceRotation == 90)
+		if (otherPortalEntranceRotation == 270 ||  PortalEntranceRotation == 90)
 		{
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y - 90, res.eulerAngles.z);
 		}
-		return res;
+        if (otherPortalEntranceRotation == 180 && PortalEntranceRotation == 0)
+        {
+            res = Quaternion.Euler(res.eulerAngles.x, res.eulerAngles.y+180, res.eulerAngles.z);
+        }
+        return res;
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using UnityEngine;
 
 namespace Project{
@@ -14,7 +13,7 @@ namespace Project{
             _jsonParser = new JSONParser();
             _gameObjectCreator = ScriptableObject.CreateInstance("GameObjectCreator") as GameObjectCreator;
 
-            string path = "Assets/Resources/mock.json"; //TODO: Change this so filename is more dynamic
+            string path = "Assets/Resources/Project.json"; //TODO: Change this so filename is more dynamic
             _streamReader = new StreamReader(path);
             SetupWorld();
         }
@@ -23,14 +22,8 @@ namespace Project{
         {
             string json = _streamReader.ReadToEnd();
             ClassObject[] classes = _jsonParser.Parse<ClassObject>(json);
-            int i = 1;
-            foreach (var c in classes)
-            {
-               Debug.Log("Room: " + i++);
-               _gameObjectCreator.Compose(c);
-            }
-
-            Debug.Log(_jsonParser.ToJson<ClassObject>(classes)); // DEV only
+            _gameObjectCreator.Compose(classes);
+            GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>().CycleCameras();
         }
     }
 }
