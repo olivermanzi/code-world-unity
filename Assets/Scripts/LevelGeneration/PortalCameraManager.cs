@@ -29,6 +29,8 @@ public class PortalCameraManager : MonoBehaviour {
             environmentObjects[0].transform.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
         }
     }
+
+    //Fire the entire camera rotation, call on teleport and fast-travel
     public void CycleCameras()
     {
         Transform playerLocation = null;
@@ -48,21 +50,41 @@ public class PortalCameraManager : MonoBehaviour {
         }
     }
 
+    //Loop through connections 2 layer deep, walling off exits and setting observers
     private void EnableCorrectCameras(Transform playerLocation)
     {
         GameObject[] directConnections = GetConnections(playerLocation);
         foreach (var directCon in directConnections)
         {
+            WallOffDestination(directCon);
             SetObserverCamera(directCon, player.transform.GetChild(0));
             GameObject[] indirectConnections = GetConnections(directCon.transform);
             foreach (var indirectCon in indirectConnections)
             {
+                WallOffDestination(directCon);
                 SetObserverCamera(indirectCon, directCon.transform.Find("PortalCamera"));
             }
         }
         RotateBackPortalCameras();
     }
 
+    //Take away the blockade wall from exit
+    private void WallOffDestination(GameObject connection)
+    {
+        for (int i = 0; i < connection.transform.childCount; i++)
+        {
+            var conn = connection.transform.GetChild(i);
+            if (conn.CompareTag("BackDoorEntry")){
+                var connPortal = conn.GetComponentInChildren<Portal>();
+                if (!connPortal.isCorridor && connPortal.wallBelow != null)
+                { 
+                    connPortal.OpenGate();
+                }
+            }
+        }
+    }
+
+    //Get a list of all the rooms the target location has connections to
     private GameObject[] GetConnections(Transform location)
     {
         GameObject[] connections = null;
@@ -79,6 +101,7 @@ public class PortalCameraManager : MonoBehaviour {
         return connections;
     }
 
+    //Sets the camera to which all connections' portal cameras relate their movement to
     private void SetObserverCamera(GameObject location, Transform newCamera)
     {
         var camera = location.transform.Find("PortalCamera").GetComponent<PortalCamera>();
@@ -96,11 +119,9 @@ public class PortalCameraManager : MonoBehaviour {
         camera.gameObject.SetActive(true);
     }
 
-    //There's 3 portal cameras in the scene to ensure smooth view throughout the map, rotated one after the other
-
+    //There are 3 portal cameras in the scene to ensure smooth view throughout the map, rotated one after the other
     private void RotateBackPortalCameras()
     {
-        
         var portalHistory = player.GetComponent<PortalHistory>();
         if(portalHistory.History.Count != 0)
         {

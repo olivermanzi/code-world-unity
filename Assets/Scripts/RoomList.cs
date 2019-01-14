@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,11 +22,6 @@ namespace Project
 
 			this.gameObject.GetComponent<Dropdown>().AddOptions(_rooms);
 		}
-		
-		// Update is called once per frame
-		void Update () {
-			
-		}
 
 		public void FastTravel()
 		{
@@ -35,22 +29,16 @@ namespace Project
 			Transform destination = GameObject.Find(roomName).transform;
 			Transform current = FindPlayerLocation();
 
-			//Vector3 destinationRot = destination.transform.rotation.eulerAngles;
 			Vector3 portalToPlayer = player.position - current.transform.position;
-				player.transform.forward = destination.forward;
-				player.transform.up = destination.up;
+			player.transform.forward = destination.forward;
+			player.transform.up = destination.up;
 
-				player.transform.position = destination.position + new Vector3 (20, 11, 0);
-				//Set portalCamera to focus on door entered
-				/*var cam = current.Find("PortalCamera").GetComponent<PortalCamera>();
-				cam.portal = transform.parent.Find("Portal").transform;
-				cam.OtherPortal = destination.parent.Find("Portal").transform;
-				player.GetComponent<FirstPersonController>().RotateTowards(destinationRot);
+			player.transform.position = destination.position + new Vector3 (20, 11, 0);
 
-				//Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards*/
-				cameraManager.CycleCameras();
-				current.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
-		}
+			cameraManager.CycleCameras();
+			current.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
+            destination.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
+        }
 
 		public Transform FindPlayerLocation()
 		{

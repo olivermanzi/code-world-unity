@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Portal : MonoBehaviour {
 
@@ -21,11 +18,11 @@ public class Portal : MonoBehaviour {
 	private Transform player;
 	private Transform attachedCamera;
     private PortalCameraManager portalCameraManager;
-    private Transform _wallBelow;
+    public Transform wallBelow;
     private Transform _text;
 	private bool isOverlapping = false;
     private bool isBackwardPortal = false;
-    private bool isCorridor = false;
+    public bool isCorridor = false;
     private float _teleportTimer = 0.0f;
 
 
@@ -35,25 +32,21 @@ public class Portal : MonoBehaviour {
 		attachedCamera = transform.parent.parent.parent.Find("PortalCamera").transform;
         portalCameraManager = GameObject.Find("PortalCameraManager").GetComponent<PortalCameraManager>();
         isBackwardPortal = transform.parent.parent.CompareTag("BackDoorEntry") ? true : false;
+
         if (isBackwardPortal)
         {
             gameObject.AddComponent<BackwardPortal>();
         }
-        if(this.transform.parent.parent.parent.name == "Corridor(Clone)" || this.transform.parent.parent.parent.name == "2DoorCorridorBase(Clone)"
-            || this.transform.parent.parent.parent.name == "2DoorCorridorExtension(Clone)")
-            {
+
+        if(transform.parent.parent.parent.GetComponent<Corridor>() != null)
+        {
                 isCorridor = true;
-            }
+        }
         else
         {
-            isCorridor = false;
-        }
-
-        if(!isCorridor)
-        {
-            _wallBelow = this.transform.parent.parent.Find("WallBelow");
-            _wallBelow.gameObject.SetActive(false);
-            _text = this.transform.parent.parent.Find("WallAbove/Text");
+            wallBelow = transform.parent.parent.Find("WallBelow");
+            wallBelow.gameObject.SetActive(false);
+            _text = transform.parent.parent.Find("WallAbove/Text");
         }
 
         if(receiver != null)
@@ -129,13 +122,13 @@ public class Portal : MonoBehaviour {
 
     public void CloseGate()
     {
-        _wallBelow.gameObject.SetActive(true);
+        wallBelow.gameObject.SetActive(true);
         _text.gameObject.SetActive(false);
     }
 
     public void OpenGate()
     {
-        _wallBelow.gameObject.SetActive(false);
+        wallBelow.gameObject.SetActive(false);
          _text.gameObject.SetActive(true);
     }
 }
