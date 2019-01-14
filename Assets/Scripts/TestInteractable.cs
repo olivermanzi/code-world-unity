@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// An example of an interactable object.
+/// Deprecated
 /// </summary>
 namespace Project
 {

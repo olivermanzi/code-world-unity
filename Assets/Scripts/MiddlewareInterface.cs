@@ -8,6 +8,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 
+/// <summary>
+/// Handles behavior of the main menu, fetching of the repository and switching to the main scene.
+/// </summary>
 
 namespace Project
 {

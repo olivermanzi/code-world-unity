@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Handles the display of the tutorial and the input required to control it
+/// </summary>
 public class TutorialManager : MonoBehaviour {
 
     GameObject[] tutCanvases;

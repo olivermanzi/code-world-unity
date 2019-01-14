@@ -6,6 +6,7 @@ namespace Project{
 	/// <summary>
 	/// Switches between BirdsEye and FirstPerson states
 	/// Delegates behavior relevant to switching states
+	/// Deprecated
 	/// </summary>
 	public class StateController : MonoBehaviour {
 

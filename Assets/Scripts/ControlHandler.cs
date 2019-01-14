@@ -70,13 +70,19 @@ namespace Project{
 			}
 		}
 
+		/// <summary>
+		/// Listens for input to toggle the fast travel menu.
+		/// </summary>
 		public void FastTravelListener(){
 			if(Input.GetKeyDown(KeyCode.F))
 			{
 				ToggleFTUI();
 			}
 		}
-
+		/// <summary>
+		/// Toggles the fast travel UI.
+		/// Made public because it is used elsewhere.
+		/// </summary>
 		public void ToggleFTUI()
 		{
 				firstPersonCanvas.SetActive(!firstPersonCanvas.activeSelf);
