@@ -17,6 +17,7 @@ public class Portal : MonoBehaviour {
     } 
 
     public string destinationString;
+    public Transform destination;
 
 	private Transform player;
 	private Transform attachedCamera;
@@ -25,6 +26,7 @@ public class Portal : MonoBehaviour {
 
 	private bool isOverlapping = false;
     private bool isBackwardPortal = false;
+    private bool isCorridor = false;
     private float _teleportTimer = 0.0f;
 
 
@@ -38,13 +40,27 @@ public class Portal : MonoBehaviour {
         {
             gameObject.AddComponent<BackwardPortal>();
         }
-        _wallBelow = this.transform.parent.parent.Find("WallBelow");
-        _wallBelow.gameObject.SetActive(false);
+        if(this.transform.parent.parent.parent.name == "Corridor(Clone)" || this.transform.parent.parent.parent.name == "2DoorCorridorBase(Clone)"
+            || this.transform.parent.parent.parent.name == "2DoorCorridorExtension(Clone)")
+            {
+                isCorridor = true;
+            }
+        else
+        {
+            isCorridor = false;
+        }
+
+        if(!isCorridor)
+        {
+            _wallBelow = this.transform.parent.parent.Find("WallBelow");
+            _wallBelow.gameObject.SetActive(false);
+        }
+
         if(receiver != null)
         {
             destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
         }
-        if(destination == null)
+        if(destination == null && !isCorridor && !isBackwardPortal)
         {
             CloseGate();
         }
