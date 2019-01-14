@@ -73,6 +73,12 @@ namespace Project{
 		public void FastTravelListener(){
 			if(Input.GetKeyDown(KeyCode.F))
 			{
+				ToggleFTUI();
+			}
+		}
+
+		public void ToggleFTUI()
+		{
 				firstPersonCanvas.SetActive(!firstPersonCanvas.activeSelf);
 				fastTravelCanvas.SetActive(!fastTravelCanvas.activeSelf);
 				if(!Cursor.visible)
@@ -85,7 +91,6 @@ namespace Project{
 				}
 				Cursor.visible = !Cursor.visible;
 				this.gameObject.GetComponent<FirstPersonController>().enabled = !this.gameObject.GetComponent<FirstPersonController>().enabled;
-			}
 		}
 
 	}
