@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+/// <summary>
+/// Deletes json file after application exits
+/// </summary>
 public class FileDeleter : MonoBehaviour {
 
+	
 	// Use this for initialization
 	string path = "/Resources/Project.json";
 	void Start () {

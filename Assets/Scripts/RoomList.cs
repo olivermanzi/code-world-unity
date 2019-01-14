@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Project
 {
+	/// <summary>
+	/// Contains and updates a list of rooms for going backwards through rooms
+	/// </summary>
 	public class RoomList : MonoBehaviour {
 
 		public PortalCameraManager cameraManager;

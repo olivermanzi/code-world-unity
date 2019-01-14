@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Project
 {
+	/// <summary>
+	/// 
+	/// Allows interaction with methods
+	/// </summary>
 	public class Method : MonoBehaviour, IInteractable {
 
 			MethodObject methodInfo;

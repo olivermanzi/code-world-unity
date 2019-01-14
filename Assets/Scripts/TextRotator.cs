@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Makes sure the text above actors faces the player
+/// </summary>
 public class TextRotator : MonoBehaviour {
 
 	public Transform player;

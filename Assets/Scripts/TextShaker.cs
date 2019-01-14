@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Shakes text of the instructions in the tutorial for visual flair.
+/// </summary>
 public class TextShaker : MonoBehaviour {
 
     RectTransform textRect;

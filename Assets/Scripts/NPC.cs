@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Project
 {
+	/// <summary>
+	/// Allows interaction with NPCs
+	/// </summary>
 	public class NPC : MonoBehaviour, IInteractable {
 
 		NPCObject npcInfo;
