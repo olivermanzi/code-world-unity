@@ -49,6 +49,7 @@ namespace Project
 
 				//Set portalCamera to function as playerCamera for the room left, so perspective is not broken looking backwards*/
 				cameraManager.CycleCameras();
+				current.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
 		}
 
 		public Transform FindPlayerLocation()

@@ -23,7 +23,7 @@ public class Portal : MonoBehaviour {
 	private Transform attachedCamera;
     private PortalCameraManager portalCameraManager;
     private Transform _wallBelow;
-
+    private Transform _text;
 	private bool isOverlapping = false;
     private bool isBackwardPortal = false;
     private bool isCorridor = false;
@@ -54,6 +54,7 @@ public class Portal : MonoBehaviour {
         {
             _wallBelow = this.transform.parent.parent.Find("WallBelow");
             _wallBelow.gameObject.SetActive(false);
+            _text = this.transform.parent.parent.Find("WallAbove/Text");
         }
 
         if(receiver != null)
@@ -128,8 +129,13 @@ public class Portal : MonoBehaviour {
 
     public void CloseGate()
     {
-        Transform doorway = this.transform.parent.parent;
         _wallBelow.gameObject.SetActive(true);
-        doorway.Find("WallAbove/Text").gameObject.SetActive(false);
+        _text.gameObject.SetActive(false);
+    }
+
+    public void OpenGate()
+    {
+        _wallBelow.gameObject.SetActive(false);
+         _text.gameObject.SetActive(true);
     }
 }
