@@ -106,7 +106,11 @@ public class PortalCamera : MonoBehaviour
 			var xDiff = portal.position.z - offset.x;
 			result = new Vector3 (zDiff, defaultPosition.y, xDiff);
 		}
-		return result;
+        if (otherPortalEntranceRotation == 180 && PortalEntranceRotation == 0)
+        {
+            result = new Vector3(portal.transform.position.x + offset.x, defaultPosition.y, portal.transform.position.z + offset.z);
+        }
+        return result;
     }
 
 	//Align PortalCamera rotation with player camera rot with regards to rotation of the OtherPortal's gateway object
@@ -129,9 +133,9 @@ public class PortalCamera : MonoBehaviour
 		{
 			res = Quaternion.Euler (res.eulerAngles.x, res.eulerAngles.y - 90, res.eulerAngles.z);
 		}
-        if (otherPortalEntranceRotation == 180)
+        if (otherPortalEntranceRotation == 180 && PortalEntranceRotation == 0)
         {
-            res = Quaternion.Euler(res.eulerAngles.x, res.eulerAngles.y, res.eulerAngles.z);
+            res = Quaternion.Euler(res.eulerAngles.x, res.eulerAngles.y+180, res.eulerAngles.z);
         }
         return res;
 	}

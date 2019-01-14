@@ -127,9 +127,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         },
         {
             "name":"class4",
@@ -165,9 +165,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         },
         {
             "name":"class5",
@@ -203,9 +203,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         },
         {
             "name":"class6",
@@ -241,9 +241,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         },
         {
             "name":"class7",
@@ -279,9 +279,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         },
         {
             "name":"class8",
@@ -317,9 +317,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         },
         {
             "name":"class9",
@@ -355,9 +355,9 @@
                     "returnType":"int"
                 }
             ],
-            "subclasses":[""],
-            "components":[""],
-            "associations":[""]
+            "subclasses":[],
+            "components":[],
+            "associations":[]
         }
     ]
 }
