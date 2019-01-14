@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4590730627486772}
   m_Layer: 0
-  m_Name: class9
+  m_Name: 4DoorRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -930,7 +930,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614925341449342}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 12.935602, y: 19.328817, z: 3.5346127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4318081414337566}
@@ -2309,8 +2309,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65130121328572722
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2357,8 +2357,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65314336445789528
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2369,8 +2369,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65328285390619338
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2381,8 +2381,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65412700920541534
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2453,8 +2453,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65801802973553668
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2465,8 +2465,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65819444701963702
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2501,8 +2501,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65855045712458968
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2513,8 +2513,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!102 &102437168966833758
 TextMesh:
   serializedVersion: 3
