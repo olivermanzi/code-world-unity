@@ -505,7 +505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4590730627486772}
   m_Layer: 0
-  m_Name: class9
+  m_Name: 4DoorRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2970,6 +2970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationString: 
   destination: {fileID: 0}
+  wallBelow: {fileID: 0}
+  isCorridor: 0
 --- !u!114 &114277677380980314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2983,6 +2985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationString: 
   destination: {fileID: 0}
+  wallBelow: {fileID: 0}
+  isCorridor: 0
 --- !u!114 &114669078185679392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2996,6 +3000,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationString: 
   destination: {fileID: 0}
+  wallBelow: {fileID: 0}
+  isCorridor: 0
 --- !u!114 &114880446758937268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3009,6 +3015,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationString: 
   destination: {fileID: 0}
+  wallBelow: {fileID: 0}
+  isCorridor: 0
 --- !u!124 &124474012208288922
 Behaviour:
   m_ObjectHideFlags: 1

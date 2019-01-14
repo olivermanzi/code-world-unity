@@ -1,0 +1,218 @@
+{
+  "data": [
+    {
+      "name": "GameFrame",
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "CampaingName"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JFrame",
+          "name": "frame"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JPanel",
+          "name": "panel"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JsonReader",
+          "name": "reader"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JFileChooser",
+          "name": "fileChooser"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "CName"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JLabel",
+          "name": "Name"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "json"
+        },
+        {
+          "accessModifier": "public",
+          "type": "FileNameExtensionFilter",
+          "name": "filter"
+        },
+        {
+          "accessModifier": "public",
+          "type": "int",
+          "name": "returnVal"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "setGameFrame"
+        },
+        {
+          "accessModifier": "public",
+          "returnType": "JLabel",
+          "name": "getCampaingName"
+        },
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "setPanel"
+        },
+        {
+          "accessModifier": "public",
+          "returnType": "String",
+          "name": "getChooser"
+        }
+      ],
+      "superclass": "",
+      "subclasses": [],
+      "associations": [
+        "MainWindow"
+      ]
+    },
+    {
+      "name": "JsonReader",
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "Cname"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "jsonText"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JSONObject",
+          "name": "reader"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "name"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "jsonText"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JSONObject",
+          "name": "parser"
+        },
+        {
+          "accessModifier": "public",
+          "type": "int",
+          "name": "w"
+        },
+        {
+          "accessModifier": "public",
+          "type": "int",
+          "name": "h"
+        },
+        {
+          "accessModifier": "public",
+          "type": "int",
+          "name": "size[]"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "String",
+          "name": "getCName"
+        },
+        {
+          "accessModifier": "public",
+          "returnType": "int[]",
+          "name": "getAppSize"
+        }
+      ],
+      "superclass": "",
+      "subclasses": [],
+      "associations": [
+        "GameFrame"
+      ]
+    },
+    {
+      "name": "JsonWriter",
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "FileWriter",
+          "name": "file"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "Cname"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "jsonText"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JSONObject",
+          "name": "writer"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JSONObject",
+          "name": "info"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "setCName"
+        }
+      ],
+      "superclass": "",
+      "subclasses": [],
+      "associations": []
+    },
+    {
+      "name": "MainWindow",
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "appName"
+        },
+        {
+          "accessModifier": "public",
+          "type": "GameFrame",
+          "name": "mainwindow"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "main"
+        }
+      ],
+      "superclass": "",
+      "subclasses": [],
+      "associations": []
+    }
+  ]
+}

@@ -88,7 +88,7 @@ namespace Project
                 FirstNode.StartInfo.Arguments = User +" "+ Repository+" "+Page;
                 FirstNode.Start();
                 FirstNode.WaitForExit();
-                if(File.Exists("/Resources/Project.json"))
+                if(File.Exists("Assets/Resources/Project.json"))
                 {
                     SceneManager.LoadScene("Main", LoadSceneMode.Single);
                 }

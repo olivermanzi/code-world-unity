@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -724,6 +724,51 @@ Prefab:
     - target: {fileID: 1207778683595144, guid: 55360c74147f0cd41b49696dec01eac0, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114574273478564434, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114767001878018518, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224340157423489592, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.9550171
+      objectReference: {fileID: 0}
+    - target: {fileID: 224340157423489592, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -449.90997
+      objectReference: {fileID: 0}
+    - target: {fileID: 224340157423489592, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.045
+      objectReference: {fileID: 0}
+    - target: {fileID: 224340157423489592, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.8936809
+      objectReference: {fileID: 0}
+    - target: {fileID: 224340157423489592, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 229.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224340157423489592, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -351
+      objectReference: {fileID: 0}
+    - target: {fileID: 224340157423489592, guid: 55360c74147f0cd41b49696dec01eac0,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.9522803
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55360c74147f0cd41b49696dec01eac0, type: 2}
