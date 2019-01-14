@@ -33,10 +33,10 @@ namespace Project
 			player.transform.forward = destination.forward;
 			player.transform.up = destination.up;
 
-			player.transform.position = destination.position + new Vector3 (20, 11, 0);
-
-			cameraManager.CycleCameras();
-			current.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
+			player.transform.position = destination.position + new Vector3 (20, 11, 0); //Add a lil extra X to the playerPos so we don't collide with the exit
+            player.GetComponent<PortalHistory>().History.Clear(); //Get rid of history in case of bugs
+            cameraManager.CycleCameras();
+            current.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
             destination.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
         }
 

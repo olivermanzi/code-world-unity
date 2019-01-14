@@ -51,7 +51,7 @@ public class PortalCameraManager : MonoBehaviour {
     }
 
     //Loop through connections 2 layer deep, walling off exits and setting observers
-    private void EnableCorrectCameras(Transform playerLocation)
+    public void EnableCorrectCameras(Transform playerLocation)
     {
         GameObject[] directConnections = GetConnections(playerLocation);
         foreach (var directCon in directConnections)
