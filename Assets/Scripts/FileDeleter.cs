@@ -21,9 +21,8 @@ public class FileDeleter : MonoBehaviour {
 
 	void OnApplicationQuit()
 	{
-		if(File.Exists(path))
-		{
+		
 			File.Delete(path);
-		}
+		
 	}
 }

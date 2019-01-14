@@ -38,14 +38,14 @@ namespace Project
         }
 
         //These are setter for the GitLab and GitHub variables
-        public void SetGitLab(Boolean repo)
+        public void SetGitLab(Toggle repo)
         {
-            GitLab = repo;
+            GitLab = repo.isOn;
         }
 
-        public void SetGitHub(Boolean repo)
+        public void SetGitHub(Toggle repo)
         {
-            GitHub = repo;
+            GitHub = repo.isOn;
         }
         
         // This functions checks and returns which of the Repo pages should be passed as a argument
@@ -74,7 +74,7 @@ namespace Project
         public void GetJson (Text name) {
             UnityEngine.Debug.Log("Middleware: GetJson run!");
             // Defining some variables
-            string NodePath = UnityEngine.Application.dataPath + "/Middleware/ConsoleApplication.exe";
+            string NodePath = UnityEngine.Application.dataPath + "/Resources/Middleware/ConsoleApplication.exe";
             var User = name.text.ToString();
             var Repository = project.text.ToString();
             var Page = checkRepo();
