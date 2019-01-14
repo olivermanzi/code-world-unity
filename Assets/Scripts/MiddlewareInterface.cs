@@ -71,7 +71,7 @@ namespace Project
         public void GetJson (Text name) {
             UnityEngine.Debug.Log("Middleware: GetJson run!");
             // Defining some variables
-            string NodePath = UnityEngine.Application.dataPath + "/Resources/Middleware/ConsoleApplication.exe";
+            string NodePath = UnityEngine.Application.dataPath + "/Middleware/ConsoleApplication.exe";
             var User = name.text.ToString();
             var Repository = project.text.ToString();
             var Page = checkRepo();
