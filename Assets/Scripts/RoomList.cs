@@ -40,7 +40,7 @@ namespace Project
 				player.transform.forward = destination.forward;
 				player.transform.up = destination.up;
 
-				player.transform.position = destination.position + new Vector3 (0, 11, 0);
+				player.transform.position = destination.position + new Vector3 (20, 11, 0);
 				//Set portalCamera to focus on door entered
 				/*var cam = current.Find("PortalCamera").GetComponent<PortalCamera>();
 				cam.portal = transform.parent.Find("Portal").transform;

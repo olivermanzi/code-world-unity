@@ -21,6 +21,14 @@ public class PortalCameraManager : MonoBehaviour {
         cameras[2].GetComponent<PortalCamera>().playerCamera = cameras[1].transform;
 
     }
+
+    public void Update()
+    {
+        if(environmentObjects[0] != null)
+        {
+            environmentObjects[0].transform.Find("DoorwayWall Back/Doorway/PortalTeleporter").GetComponent<Portal>().CloseGate();
+        }
+    }
     public void CycleCameras()
     {
         Transform playerLocation = null;

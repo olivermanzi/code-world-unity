@@ -25,6 +25,9 @@ namespace Project{
 		/// </value>
 		public float MovementFactor = 0.75f;
 
+		public GameObject firstPersonCanvas;
+		public GameObject fastTravelCanvas;
+
 		Rigidbody playerRb;
 		// Use this for initialization
 		void Start () {
@@ -36,6 +39,7 @@ namespace Project{
 		void Update () {
 			CameraListener();
 			InteractionListener();
+			FastTravelListener();
 		}
 
 		/// <summary>
@@ -65,5 +69,24 @@ namespace Project{
 				gameObject.GetComponent<ObjectInteraction>().StartInteraction();
 			}
 		}
+
+		public void FastTravelListener(){
+			if(Input.GetKeyDown(KeyCode.F))
+			{
+				firstPersonCanvas.SetActive(!firstPersonCanvas.activeSelf);
+				fastTravelCanvas.SetActive(!fastTravelCanvas.activeSelf);
+				if(!Cursor.visible)
+				{
+					Cursor.lockState = CursorLockMode.Confined;
+				}
+				else
+				{
+					Cursor.lockState = CursorLockMode.None;
+				}
+				Cursor.visible = !Cursor.visible;
+				this.gameObject.GetComponent<FirstPersonController>().enabled = !this.gameObject.GetComponent<FirstPersonController>().enabled;
+			}
+		}
+
 	}
 }
