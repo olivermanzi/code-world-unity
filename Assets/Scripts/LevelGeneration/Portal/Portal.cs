@@ -99,22 +99,16 @@ public class Portal : MonoBehaviour {
             {
                 receiver = history.PopLastPortalEntered().transform;
             }
-            else
-            {
-                Debug.Log("yoot");
-            }
         }
         else
         {
             destination = receiver.transform.parent.parent.parent.Find("PortalCamera").transform;
         }
-        Debug.Log("big");
         Vector3 destinationRot = destination.transform.rotation.eulerAngles;
 		Vector3 portalToPlayer = player.position - transform.position;
 		float dotProduct = Vector3.Dot(transform.parent.Find("Portal").up, portalToPlayer);
 		//If Player entered portal through front
 		if (dotProduct < 1f) {
-            Debug.Log("lmayo");
 
             //Teleport player and adjust rotations
             player.transform.forward = destination.forward;

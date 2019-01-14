@@ -50,7 +50,6 @@ public class PortalHistory : MonoBehaviour {
             res = History[History.Count - 1];
             History.RemoveAt(History.Count-1);
         }
-        Debug.Log(res);
         return res;
     }
 
