@@ -11,7 +11,6 @@ public class Portal : MonoBehaviour {
         get{ return _receiver; }
         set
         {
-            //TODO: Write a coroutine that disables this for X seconds
             _receiver = value;
         }
     } 
@@ -66,7 +65,14 @@ public class Portal : MonoBehaviour {
         {
             //Get the portal we're supposed to TP to and remove it from history
             destination = GetComponent<BackwardPortal>().attachedCamera;
-            receiver = history.PopLastPortalEntered().transform;
+            if (!history.GetLastPortalEntered().Equals(transform))
+            {
+                receiver = history.PopLastPortalEntered().transform;
+            }
+            else
+            {
+                Debug.Log("yoot");
+            }
         }
         else
         {
