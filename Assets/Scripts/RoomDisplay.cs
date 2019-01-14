@@ -11,7 +11,7 @@ public class RoomDisplay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -25,6 +25,16 @@ public class RoomDisplay : MonoBehaviour {
                 playerLocation = item.transform;
             }
         }
-		this.gameObject.GetComponent<Text>().text = playerLocation.name;
-	}
+        if(playerLocation != null)
+        {
+            if(playerLocation.GetComponent<RoomBehaviour>() != null)
+            {
+                gameObject.GetComponent<Text>().text = playerLocation.name;
+            }
+            else if(playerLocation.GetComponent<Corridor>() != null)
+            {
+                gameObject.GetComponent<Text>().text = playerLocation.GetComponent<Corridor>().IsExtensionOf;
+            }
+        }
+    }
 }

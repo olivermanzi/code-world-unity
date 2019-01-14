@@ -93,6 +93,7 @@ namespace Project
                     corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal = newRoom.GetComponent<RoomBehaviour>().LeftTeleporter.transform.parent.Find("Portal");
                 }
             }
+            corridor.GetComponent<Corridor>().IsExtensionOf = room.Info.name;
         }
 
         private void CreateSubClassesCorridor(Room room, GameObject newRoom)
@@ -117,6 +118,7 @@ namespace Project
                     corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal = roomBH.RightTeleporter.transform.parent.Find("Portal").transform;
                 }
             }
+            corridor.GetComponent<Corridor>().IsExtensionOf = room.Info.name;
         }
 
         private void CreateSuperClassCorridor(Room room, GameObject newRoom)
@@ -138,6 +140,7 @@ namespace Project
                     corridor.transform.GetChild(i).GetComponent<PortalCamera>().OtherPortal = newRoom.GetComponent<RoomBehaviour>().FrontTeleporter.transform.parent.Find("Portal");
                 }
             }
+            corridor.GetComponent<Corridor>().IsExtensionOf = room.Info.name;
         }
 
         //Centralize logic required for each addition
