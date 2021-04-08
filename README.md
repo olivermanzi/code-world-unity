@@ -1,6 +1,9 @@
-# dit355
+# DIT355 H18 Mini Project: Distributed Systems Development
 
-DIT355 H18 Mini Project: Distributed Systems Development
+
+**Authors**:
+[@FFrostYY](https://github.com/FFrostYY)
+[@Mokkants](https://github.com/Mokkants)
 
 Team Flex - Visualisation
 
@@ -21,6 +24,3 @@ Contains scripts related to level generation
 
 ## Portals
 Contains scripts related to Portal display and teleportation.
-
-
-
