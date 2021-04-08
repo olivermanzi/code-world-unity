@@ -1,11 +1,10 @@
 # DIT355 H18 Mini Project: Distributed Systems Development
 
+Team Flex - Visualisation
 
 **Authors**:
 [@FFrostYY](https://github.com/FFrostYY)
 [@Mokkants](https://github.com/Mokkants)
-
-Team Flex - Visualisation
 
 # Description
 
